@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Potenza Lodge - Societa Nativi di Potenza Basilicata</title>
+    <meta
+      name="description"
+      content="Preserving Italian Heritage in Denver Since 1899. Join us for the Feast of St. Rocco, community events, and hall rentals."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js for Interactivity -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "potenza-green": "#1a472a", // Deep Forest Green
+              "potenza-red": "#8a1c1c", // Venetian Red
+              "potenza-gold": "#d4af37", // Metallic Gold
+              "potenza-cream": "#f9f5f0", // Warm Off-White
+              "potenza-charcoal": "#2d2d2d",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+            backgroundImage: {
+              "hero-pattern": "url('./shutterstock-152854481.webp')",
+              "st-rocco-pattern":
+                "linear-gradient(to right, rgba(138, 28, 28, 0.9), rgba(138, 28, 28, 0.8)), url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f9f5f0;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1a472a;
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d4af37;
+      }
+
+      .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .ornate-border-top {
+        border-top: 1px solid #d4af37;
+        position: relative;
+      }
+      .ornate-border-top::after {
+        content: "✦";
+        position: absolute;
+        top: -14px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f9f5f0;
+        padding: 0 10px;
+        color: #d4af37;
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-potenza-cream text-potenza-charcoal font-sans antialiased selection:bg-potenza-red selection:text-white"
+    x-data="{ mobileMenuOpen: false, scrolled: false }"
+    @scroll.window="scrolled = (window.pageYOffset > 20)"
+  >
+    <!-- Navigation -->
+    <header
+      :class="scrolled ? 'bg-potenza-green/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'"
+      class="fixed w-full top-0 z-50 transition-all duration-300"
+    >
+      <div class="container mx-auto px-6 flex justify-between items-center">
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex space-x-8 items-center">
+          <a
+            href="#about"
+            class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
+            >Our Story</a
+          >
+          <a
+            href="#st-rocco"
+            class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
+            >Feast of St. Rocco</a
+          >
+          <a
+            href="#hall-rental"
+            class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
+            >Hall Rental</a
+          >
+          <a
+            href="#membership"
+            class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
+            >Membership</a
+          >
+          <a
+            href="#contact"
+            class="px-5 py-2.5 bg-potenza-gold text-potenza-green font-bold rounded hover:bg-white transition-all transform hover:scale-105 shadow-md uppercase text-sm"
+            >Contact Us</a
+          >
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button
+          @click="mobileMenuOpen = !mobileMenuOpen"
+          class="md:hidden text-white focus:outline-none"
+        >
+          <svg
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              x-show="!mobileMenuOpen"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              x-show="mobileMenuOpen"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div
+        x-show="mobileMenuOpen"
+        x-transition.opacity
+        class="md:hidden absolute top-full left-0 w-full bg-potenza-green shadow-xl border-t border-potenza-green/50"
+      >
+        <div class="flex flex-col px-6 py-4 space-y-4">
+          <a
+            href="#about"
+            @click="mobileMenuOpen = false"
+            class="text-white hover:text-potenza-gold block font-medium"
+            >Our Story</a
+          >
+          <a
+            href="#st-rocco"
+            @click="mobileMenuOpen = false"
+            class="text-white hover:text-potenza-gold block font-medium"
+            >Feast of St. Rocco</a
+          >
+          <a
+            href="#hall-rental"
+            @click="mobileMenuOpen = false"
+            class="text-white hover:text-potenza-gold block font-medium"
+            >Hall Rental</a
+          >
+          <a
+            href="#membership"
+            @click="mobileMenuOpen = false"
+            class="text-white hover:text-potenza-gold block font-medium"
+            >Membership</a
+          >
+          <a
+            href="#contact"
+            @click="mobileMenuOpen = false"
+            class="text-potenza-gold font-bold block"
+            >Contact Us</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="relative h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center bg-fixed bg-no-repeat"
+    >
+      <div class="absolute inset-0 bg-black/20"></div>
+      <!-- Additional darken overlay -->
+      <div class="container mx-auto px-6 relative z-10 text-center text-white">
+        <!-- Logo -->
+        <div class="flex justify-center mb-8">
+          <img
+            src="./potenza-remove-background.com.png"
+            alt="Potenza Lodge Logo"
+            class="h-64 md:h-80 w-auto opacity-90 mix-blend-screen drop-shadow-2xl"
+          />
+        </div>
+
+        <h2
+          class="text-potenza-red uppercase tracking-[0.2em] text-sm md:text-base font-semibold mb-4 animate-fade-in-up"
+        >
+          Societa Nativi di Potenza Basilicata
+        </h2>
+        <h1
+          class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-shadow"
+        >
+          Heritage,<br />Family & Faith
+        </h1>
+        <p
+          class="text-lg md:text-2xl text-white/90 max-w-2xl mx-auto mb-10 font-light italic font-serif"
+        >
+          Preserving the traditions of Potenza, Italy in Denver since 1899.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+          <a
+            href="#st-rocco"
+            class="px-8 py-4 bg-potenza-red hover:bg-red-900 text-white font-bold rounded text-lg transition-all shadow-lg border border-potenza-red hover:border-white/20"
+          >
+            Feast of St. Rocco
+          </a>
+          <a
+            href="#hall-rental"
+            class="px-8 py-4 bg-transparent hover:bg-white/10 text-white font-bold rounded text-lg transition-all border border-white"
+          >
+            Rent Our Hall
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll Down Indicator -->
+      <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/70"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          ></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Values Section (Tri-Pod) -->
+    <section class="py-20 bg-white relative overflow-hidden">
+      <!-- Background Pattern (Subtle) -->
+      <div
+        class="absolute inset-0 opacity-5"
+        style="
+          background-image: radial-gradient(#1a472a 1px, transparent 1px);
+          background-size: 30px 30px;
+        "
+      ></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+          <!-- Value 1 -->
+          <div
+            class="group p-8 border border-gray-100 rounded-lg hover:shadow-xl transition-all duration-300 bg-potenza-cream/50"
+          >
+            <div
+              class="w-16 h-16 bg-potenza-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-potenza-green transition-colors"
+            >
+              <svg
+                class="w-8 h-8 text-potenza-green group-hover:text-potenza-gold transition-colors"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-potenza-green mb-3">
+              Amore
+            </h3>
+            <p
+              class="text-sm font-bold text-potenza-gold uppercase tracking-widest mb-4"
+            >
+              Love
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              Exhibiting respect for each other and working together for our
+              common goals to promote social advancement.
+            </p>
+          </div>
+
+          <!-- Value 2 -->
+          <div
+            class="group p-8 border border-gray-100 rounded-lg hover:shadow-xl transition-all duration-300 bg-potenza-cream/50"
+          >
+            <div
+              class="w-16 h-16 bg-potenza-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-potenza-green transition-colors"
+            >
+              <svg
+                class="w-8 h-8 text-potenza-green group-hover:text-potenza-gold transition-colors"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-potenza-green mb-3">
+              Benevolenza
+            </h3>
+            <p
+              class="text-sm font-bold text-potenza-gold uppercase tracking-widest mb-4"
+            >
+              Goodness
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              Exhibiting kindness, developing a well-meaning attitude, and
+              remaining open to new, creative ideas.
+            </p>
+          </div>
+
+          <!-- Value 3 -->
+          <div
+            class="group p-8 border border-gray-100 rounded-lg hover:shadow-xl transition-all duration-300 bg-potenza-cream/50"
+          >
+            <div
+              class="w-16 h-16 bg-potenza-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-potenza-green transition-colors"
+            >
+              <svg
+                class="w-8 h-8 text-potenza-green group-hover:text-potenza-gold transition-colors"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-potenza-green mb-3">
+              Pace
+            </h3>
+            <p
+              class="text-sm font-bold text-potenza-gold uppercase tracking-widest mb-4"
+            >
+              Peace
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              Resigning ourselves to work with others, being responsive, and
+              developing honest approaches to all solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- History / About Section -->
+    <section id="about" class="py-24 bg-potenza-cream">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+          <!-- Text Content -->
+          <div class="lg:w-1/2">
+            <div class="flex items-center gap-4 mb-6">
+              <span class="h-px w-12 bg-potenza-gold"></span>
+              <span
+                class="text-potenza-red font-bold uppercase tracking-widest text-sm"
+                >Our History</span
+              >
+            </div>
+            <h2
+              class="font-serif text-4xl lg:text-5xl font-bold text-potenza-green mb-8"
+            >
+              Colorado's Oldest Italian Organization
+            </h2>
+            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+              Founded in 1899 by immigrants from Potenza, Basilicata, the
+              Potenza Lodge was established to help fellow Italians adapt to
+              their new life in Denver while providing a place to retain their
+              rich culture.
+            </p>
+            <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+              For over 120 years, we have remained a pillar of the North Denver
+              community. The principles of our founders—Amore, Benevolenza, and
+              Pace—continue to guide us as we celebrate our heritage through
+              food, faith, and family.
+            </p>
+            <div class="flex items-center gap-4">
+              <div
+                class="bg-white p-4 rounded shadow-sm border-l-4 border-potenza-green"
+              >
+                <span
+                  class="block font-serif text-3xl font-bold text-potenza-green"
+                  >1899</span
+                >
+                <span class="text-xs uppercase text-gray-500 font-bold"
+                  >Year Founded</span
+                >
+              </div>
+              <div
+                class="bg-white p-4 rounded shadow-sm border-l-4 border-potenza-red"
+              >
+                <span
+                  class="block font-serif text-3xl font-bold text-potenza-red"
+                  >125+</span
+                >
+                <span class="text-xs uppercase text-gray-500 font-bold"
+                  >Years of Tradition</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Grid -->
+          <div class="lg:w-1/2 relative">
+            <!-- Decorative Border Frame (hidden on mobile, visible on md+) -->
+            <div
+              class="hidden md:block absolute -inset-4 border-2 border-potenza-gold/30 rounded-lg transform rotate-2"
+            ></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <img
+                src="./lodge-bar.jpg"
+                alt="Potenza Lodge Bar"
+                class="rounded-lg shadow-lg w-full h-48 sm:h-56 md:h-64 object-cover md:translate-y-8"
+              />
+              <img
+                src="./lodge-flowers.jpg"
+                alt="Potenza Lodge Event Setup"
+                class="rounded-lg shadow-lg w-full h-48 sm:h-56 md:h-64 object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feast of St. Rocco Section -->
+    <section
+      id="st-rocco"
+      class="relative py-24 bg-st-rocco-pattern bg-cover bg-center text-white text-center attachment-fixed"
+    >
+      <div class="absolute inset-0 bg-potenza-red/90 mix-blend-multiply"></div>
+      <div class="container mx-auto px-6 relative z-10">
+        <!-- Olive Branch Icon SVG -->
+        <div class="flex justify-center mb-6">
+          <svg
+            width="60"
+            height="60"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="text-potenza-gold"
+          >
+            <path d="M12 20a10 10 0 1 0 10-10 10 10 0 0 0-10 10z"></path>
+            <path d="M12 20c0-6.6 6-12 12-12"></path>
+            <path d="M15.5 12a2.5 2.5 0 1 0 5 0 2.5 2.5 0 1 0-5 0"></path>
+            <path d="M8.5 14a2.5 2.5 0 1 0 5 0 2.5 2.5 0 1 0-5 0"></path>
+            <path d="M3.5 10a2.5 2.5 0 1 0 5 0 2.5 2.5 0 1 0-5 0"></path>
+          </svg>
+        </div>
+
+        <span
+          class="inline-block px-3 py-1 border border-potenza-gold text-potenza-gold text-xs font-bold uppercase tracking-widest mb-4"
+          >Annual Tradition</span
+        >
+        <h2
+          class="font-serif text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-md"
+        >
+          The Feast of St. Rocco
+        </h2>
+        <p
+          class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10 font-light"
+        >
+          Join us every August for Denver's most authentic Italian celebration.
+          A three-day bazaar featuring a solemn procession, sausage sandwiches,
+          pizza fritte, and community joy.
+        </p>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12 text-left"
+        >
+          <div
+            class="bg-white/10 backdrop-blur-sm p-6 rounded border border-white/20"
+          >
+            <h4 class="font-serif text-2xl text-potenza-gold mb-2">
+              Procession
+            </h4>
+            <p class="text-sm">
+              A historic bidding for the honor to carry the statue of St. Rocco
+              through the streets of North Denver, followed by a special Mass.
+            </p>
+          </div>
+          <div
+            class="bg-white/10 backdrop-blur-sm p-6 rounded border border-white/20"
+          >
+            <h4 class="font-serif text-2xl text-potenza-gold mb-2">Cucina</h4>
+            <p class="text-sm">
+              Authentic Italian street food including our famous sausage
+              sandwiches, cannolis, and pizza fritte made fresh on-site.
+            </p>
+          </div>
+          <div
+            class="bg-white/10 backdrop-blur-sm p-6 rounded border border-white/20"
+          >
+            <h4 class="font-serif text-2xl text-potenza-gold mb-2">
+              Celebration
+            </h4>
+            <p class="text-sm">
+              Live music, games for the family, and a vibrant bazaar atmosphere
+              that marks the end of summer in Little Italy.
+            </p>
+          </div>
+        </div>
+
+        <!-- History Section -->
+        <div class="mt-20 max-w-4xl mx-auto">
+          <div class="flex items-center justify-center gap-4 mb-8">
+            <span class="h-px w-16 bg-potenza-gold"></span>
+            <span
+              class="text-potenza-gold font-bold uppercase tracking-widest text-sm"
+              >Our Heritage</span
+            >
+            <span class="h-px w-16 bg-potenza-gold"></span>
+          </div>
+
+          <div
+            class="bg-white/10 backdrop-blur-md rounded-lg border border-white/20 p-8 md:p-12 text-left"
+          >
+            <div class="space-y-8">
+              <!-- Timeline Item 1 -->
+              <div class="relative pl-8 border-l-2 border-potenza-gold/50">
+                <div
+                  class="absolute -left-2 top-0 w-4 h-4 bg-potenza-gold rounded-full"
+                ></div>
+                <div class="mb-2">
+                  <span
+                    class="text-potenza-gold font-bold text-sm uppercase tracking-widest"
+                    >1892</span
+                  >
+                </div>
+                <p class="text-white/90 leading-relaxed">
+                  Seven years prior to the founding of the Potenza Lodge, the
+                  Jesuit Priests in Denver were celebrating the Feast of St.
+                  Rocco on the grounds of Regis College in northwest Denver.
+                  Saint Roch, a Frenchman, is said to have given up his wealth
+                  and traveled to Italy in the 1400's to help the Italian people
+                  fight the plague and leprosy. He performed many miracles of
+                  healing. His feast day is August 16th.
+                </p>
+              </div>
+
+              <!-- Timeline Item 2 -->
+              <div class="relative pl-8 border-l-2 border-potenza-gold/50">
+                <div
+                  class="absolute -left-2 top-0 w-4 h-4 bg-potenza-gold rounded-full"
+                ></div>
+                <div class="mb-2">
+                  <span
+                    class="text-potenza-gold font-bold text-sm uppercase tracking-widest"
+                    >October 14, 1899</span
+                  >
+                </div>
+                <p class="text-white/90 leading-relaxed">
+                  Societa Nativi di Potenza Basilicata, more commonly known as
+                  the Potenza Lodge, was founded in Denver. The purpose set
+                  forth by the founders of the Society was to help other Italian
+                  immigrants from the Basilicata region in southern Italy
+                  (Potenza is the capital city of that region) become familiar
+                  with America while socializing with their fellow countrymen.
+                  They also helped find employment and housing.
+                </p>
+              </div>
+
+              <!-- Timeline Item 3 -->
+              <div class="relative pl-8 border-l-2 border-potenza-gold/50">
+                <div
+                  class="absolute -left-2 top-0 w-4 h-4 bg-potenza-gold rounded-full"
+                ></div>
+                <div class="mb-2">
+                  <span
+                    class="text-potenza-gold font-bold text-sm uppercase tracking-widest"
+                    >1932</span
+                  >
+                </div>
+                <p class="text-white/90 leading-relaxed">
+                  After 40 years of hosting the feast, the Priests turned to the
+                  Potenza Lodge and asked members to take over the Festivities.
+                  The Lodge agreed, adopted St. Rocco as its patron Saint, and
+                  three generations later, the Feast continues.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Life of Saint Rocco Biography (Interactive) -->
+        <div class="mt-20 max-w-4xl mx-auto" x-data="{ expanded: false }">
+          <div class="flex items-center justify-center gap-4 mb-8">
+            <span class="h-px w-16 bg-potenza-gold"></span>
+            <span
+              class="text-potenza-gold font-bold uppercase tracking-widest text-sm"
+              >The Patron Saint</span
+            >
+            <span class="h-px w-16 bg-potenza-gold"></span>
+          </div>
+
+          <div
+            @click="expanded = !expanded"
+            class="bg-white/10 backdrop-blur-md rounded-lg border border-white/20 p-8 md:p-12 cursor-pointer transition-all duration-300 hover:bg-white/15 hover:border-potenza-gold/50 group"
+          >
+            <!-- Header (Always Visible) -->
+            <div class="text-center" :class="expanded ? 'mb-8' : 'mb-0'">
+              <h3
+                class="font-serif text-3xl md:text-4xl font-bold text-white mb-3 group-hover:text-potenza-gold transition-colors"
+              >
+                The Life of Saint Rocco
+              </h3>
+              <p class="text-potenza-gold italic text-lg">
+                Confessor, Fourteenth Century
+              </p>
+              <p class="text-white/70 text-sm mt-2">Feast Day: August 16th</p>
+            </div>
+
+            <!-- Teaser (Collapsed State) -->
+            <div
+              x-show="!expanded"
+              x-transition:enter="transition ease-out duration-200"
+              x-transition:enter-start="opacity-0"
+              x-transition:enter-end="opacity-100"
+              class="mt-6"
+            >
+              <p class="text-white/80 text-center leading-relaxed">
+                In the later Middle Ages, Saint Roch was widely invoked for
+                protection against the plague. Born in Montpellier, France, he
+                devoted his life to nursing victims of the disease, performing
+                miraculous healings across Italy...
+              </p>
+              <div
+                class="flex items-center justify-center gap-2 mt-6 text-potenza-gold font-medium"
+              >
+                <span class="text-sm uppercase tracking-widest"
+                  >Read His Full Story</span
+                >
+                <svg
+                  class="w-5 h-5 transform group-hover:translate-y-1 transition-transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Full Biography (Expanded State) -->
+            <div
+              x-show="expanded"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0 -translate-y-4"
+              x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-in duration-200"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0"
+            >
+              <div class="space-y-6 text-white/90 leading-relaxed text-left">
+                <p>
+                  In the later Middle Ages, when outbreaks of the plague were
+                  frequent and dreaded occurrences, Saint Roch was widely
+                  invoked for protection against the disease. He was born in
+                  Montpellier in southern France, about the beginning of the
+                  fourteenth century, and evidently spent most of his life
+                  nursing victims of the plague. Reliable information about him
+                  is scarce, although various legends and stories have supplied
+                  him with a detailed history.
+                </p>
+
+                <p>
+                  According to some of the more trustworthy of these accounts,
+                  Roch was the son of Montpellier's governor. At the age of
+                  twenty he began a pilgrimage to Rome, after first selling his
+                  inheritance and giving the money to the poor. Finding the
+                  plague raging in all the Italian towns he passed through, he
+                  began caring for those afflicted with it. Few people at that
+                  time had the courage to face the disease, much less to help
+                  those who had it. Besides being revolting to see, the plague
+                  was swift-working, easily transmitted, and nearly always
+                  fatal. Those who contracted it frequently found themselves
+                  abandoned and left to die alone. In such a fear-stricken
+                  atmosphere, Roch went from city to city devotedly nursing
+                  those who had the disease. Often, it is said, he cured his
+                  patients simply by making the sign of the cross over them.
+                </p>
+
+                <p>
+                  At Piacenza, his self-sacrifice had its inevitable result; he
+                  became afflicted with the plague himself. Knowing from
+                  experience how others would react to his condition, he went to
+                  a nearby forest to die quietly and alone. The legends tell us,
+                  however, that he was kept alive by a dog bringing him a loaf
+                  of bread every day. The dog's master followed it on one
+                  occasion, found Roch, and cared for him until he recovered.
+                </p>
+
+                <p>
+                  After more work among the plague-stricken, Roch finally
+                  returned to Montpellier, many years after he had left there.
+                  The city was engaged in a war, and Roch, whom no one
+                  recognized, was taken for a spy and thrown into prison. He
+                  died there, still unrecognized, five years later. When his
+                  body was examined after his death, a cross-shaped birthmark on
+                  his breast enabled him to be identified as the governor's son.
+                </p>
+
+                <!-- Iconography Note -->
+                <div class="mt-8 pt-6 border-t border-white/20">
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="shrink-0 w-12 h-12 bg-potenza-gold/20 rounded-full flex items-center justify-center"
+                    >
+                      <svg
+                        class="w-6 h-6 text-potenza-gold"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.5"
+                          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4
+                        class="text-potenza-gold font-bold text-sm uppercase tracking-widest mb-2"
+                      >
+                        In Sacred Art
+                      </h4>
+                      <p class="text-white/80 text-sm italic">
+                        One evidence of the widespread devotion to Saint Rocco
+                        are the many paintings of him; he is usually shown with
+                        a pilgrim's staff, a dog at his feet, and a sore—the
+                        mark of the plague—showing on his thigh.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Collapse Button -->
+                <div
+                  class="flex items-center justify-center gap-2 mt-8 text-potenza-gold font-medium"
+                >
+                  <span class="text-sm uppercase tracking-widest"
+                    >Collapse</span
+                  >
+                  <svg
+                    class="w-5 h-5 transform rotate-180"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="#contact"
+          class="inline-block mt-12 px-10 py-4 bg-potenza-gold text-potenza-charcoal font-bold rounded hover:bg-white transition-colors shadow-lg"
+        >
+          Get This Year's Details
+        </a>
+      </div>
+    </section>
+
+    <!-- Hall Rental Section -->
+    <section id="hall-rental" class="py-24 bg-white relative">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col-reverse md:flex-row gap-16 items-center">
+          <!-- Video Side -->
+          <div class="md:w-1/2">
+            <div
+              class="relative rounded-lg overflow-hidden shadow-2xl cursor-pointer"
+              @click="openVideoFullscreen()"
+              x-data="{
+                   openVideoFullscreen() {
+                     const video = $refs.rentalVideo;
+                     video.muted = false;
+                     
+                     const enterFullscreen = () => {
+                       if (video.requestFullscreen) {
+                         video.requestFullscreen();
+                       } else if (video.webkitRequestFullscreen) {
+                         video.webkitRequestFullscreen();
+                       } else if (video.mozRequestFullScreen) {
+                         video.mozRequestFullScreen();
+                       } else if (video.msRequestFullscreen) {
+                         video.msRequestFullscreen();
+                       }
+                     };
+                     
+                     enterFullscreen();
+                     
+                     const playVideo = () => {
+                       video.play().catch(e => console.log('Play failed:', e));
+                     };
+                     
+                     video.addEventListener('fullscreenchange', function onFullscreenChange() {
+                       if (!document.fullscreenElement && !document.webkitFullscreenElement && 
+                           !document.mozFullScreenElement && !document.msFullscreenElement) {
+                         video.pause();
+                         video.currentTime = 0;
+                         video.muted = true;
+                         video.removeEventListener('fullscreenchange', onFullscreenChange);
+                       }
+                     }, { once: true });
+                     
+                     video.addEventListener('webkitfullscreenchange', function onWebkitFullscreenChange() {
+                       if (!document.webkitFullscreenElement) {
+                         video.pause();
+                         video.currentTime = 0;
+                         video.muted = true;
+                         video.removeEventListener('webkitfullscreenchange', onWebkitFullscreenChange);
+                       }
+                     }, { once: true });
+                     
+                     setTimeout(playVideo, 100);
+                   }
+                 }"
+            >
+              <video
+                x-ref="rentalVideo"
+                src="./rentalvid.mp4"
+                preload="metadata"
+                muted
+                class="w-full h-full object-cover"
+                @loadedmetadata="this.currentTime = 0.1"
+              ></video>
+            </div>
+          </div>
+
+          <!-- Content Side -->
+          <div class="md:w-1/2">
+            <div class="flex items-center gap-4 mb-6">
+              <span class="h-px w-12 bg-potenza-gold"></span>
+              <span
+                class="text-potenza-green font-bold uppercase tracking-widest text-sm"
+                >Venue Rental</span
+              >
+            </div>
+            <h2
+              class="font-serif text-4xl lg:text-5xl font-bold text-potenza-charcoal mb-6"
+            >
+              Host Your Event With Us
+            </h2>
+            <p class="text-gray-600 mb-8 leading-relaxed">
+              Potenza Lodge Hall offers a spacious, historic, and affordable
+              venue in the heart of North Denver. Whether you are planning a
+              wedding reception, a quinceañera, or a corporate meeting, our
+              facility can accommodate your needs.
+            </p>
+
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <span class="text-potenza-gold mr-3 mt-1">✦</span>
+                <span class="text-gray-700"
+                  ><strong>Capacity:</strong> Accommodates up to 220 guests
+                  comfortably.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-potenza-gold mr-3 mt-1">✦</span>
+                <span class="text-gray-700"
+                  ><strong>Facilities:</strong> Full commercial kitchen, large
+                  bar area, and stage.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="text-potenza-gold mr-3 mt-1">✦</span>
+                <span class="text-gray-700"
+                  ><strong>Convenience:</strong> Private parking lot for 75 cars
+                  and easy highway access.</span
+                >
+              </li>
+            </ul>
+
+            <a
+              href="tel:3034771722"
+              class="inline-flex items-center gap-2 text-potenza-red font-bold hover:text-potenza-green transition-colors group"
+            >
+              <span>Call to Book: 303-477-1722</span>
+              <svg
+                class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership CTA -->
+    <section
+      id="membership"
+      class="py-20 bg-potenza-green text-white relative overflow-hidden"
+    >
+      <!-- SVG Pattern Background -->
+      <svg
+        class="absolute top-0 right-0 opacity-10 w-96 h-96 transform translate-x-1/3 -translate-y-1/3"
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="#d4af37"
+          d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-5.1C93.5,9,82.3,22.3,71.6,33.4C60.9,44.5,50.7,53.4,39.6,60.6C28.5,67.8,16.5,73.3,3.6,71.2C-9.3,69.1,-23.1,59.4,-36.1,50.3C-49.1,41.2,-61.3,32.7,-69.3,20.8C-77.3,8.9,-81.1,-6.4,-77.1,-19.9C-73.1,-33.4,-61.3,-45.1,-48.9,-53.1C-36.5,-61.1,-23.6,-65.4,-10.1,-63.9C3.4,-62.4,16.8,-55.1,30.5,-83.6"
+          transform="translate(100 100)"
+        />
+      </svg>
+
+      <div class="container mx-auto px-6 relative z-10 text-center">
+        <h2 class="font-serif text-4xl font-bold mb-6 text-white">
+          Join Our Family
+        </h2>
+        <p
+          class="text-xl text-potenza-cream/90 max-w-2xl mx-auto mb-10 font-light"
+        >
+          Become a part of history. We welcome men and women who share our
+          values and wish to preserve the Italian-American culture in Denver.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+          <a
+            href="mens-lodge.html"
+            class="bg-white/5 border border-white/20 p-6 rounded hover:bg-white/10 hover:border-potenza-gold transition-colors cursor-pointer block group"
+          >
+            <h3
+              class="text-potenza-gold font-bold text-xl mb-2 group-hover:text-white transition-colors"
+            >
+              Men's Lodge
+            </h3>
+            <p class="text-sm">
+              Join the brotherhood dedicated to benevolence and unity.
+            </p>
+            <span
+              class="inline-flex items-center gap-1 text-potenza-gold text-xs font-bold uppercase tracking-widest mt-3 group-hover:gap-2 transition-all"
+            >
+              View Officers
+              <svg
+                class="w-3 h-3"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </span>
+          </a>
+          <a
+            href="ladies-auxiliary.html"
+            class="bg-white/5 border border-white/20 p-6 rounded hover:bg-white/10 hover:border-potenza-gold transition-colors cursor-pointer block group"
+          >
+            <h3
+              class="text-potenza-gold font-bold text-xl mb-2 group-hover:text-white transition-colors"
+            >
+              Ladies Auxiliary
+            </h3>
+            <p class="text-sm">
+              A vital part of our community focusing on charity and culture.
+            </p>
+            <span
+              class="inline-flex items-center gap-1 text-potenza-gold text-xs font-bold uppercase tracking-widest mt-3 group-hover:gap-2 transition-all"
+            >
+              View Officers
+              <svg
+                class="w-3 h-3"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </span>
+          </a>
+        </div>
+        <div class="mt-12">
+          <a
+            href="membership.html"
+            class="px-8 py-3 bg-white text-potenza-green font-bold rounded shadow hover:bg-potenza-gold hover:text-white transition-colors"
+            >Apply for Membership</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer
+      id="contact"
+      class="bg-potenza-charcoal text-white pt-20 pb-10 border-t-8 border-potenza-red"
+    >
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+          <!-- Contact Info -->
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <img
+                src="./potenza.png"
+                alt="Potenza Lodge Logo"
+                class="h-16 w-16 object-contain mix-blend-multiply"
+              />
+              <h3 class="font-serif text-2xl font-bold text-white">
+                Potenza Lodge
+              </h3>
+            </div>
+            <div class="space-y-4 text-gray-400">
+              <p class="flex items-start gap-3">
+                <svg
+                  class="w-6 h-6 text-potenza-gold shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                </svg>
+                <span>1900 W. 38th Avenue<br />Denver, CO 80211</span>
+              </p>
+              <p class="flex items-center gap-3">
+                <svg
+                  class="w-6 h-6 text-potenza-gold shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  ></path>
+                </svg>
+                <span
+                  ><a
+                    href="tel:3034771722"
+                    class="hover:text-white transition-colors"
+                    >303-477-1722</a
+                  ></span
+                >
+              </p>
+              <p class="flex items-center gap-3">
+                <svg
+                  class="w-6 h-6 text-potenza-gold shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <span>contact@potenzalodge.com</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Links -->
+          <div>
+            <h3 class="font-serif text-2xl font-bold text-white mb-6">
+              Quick Links
+            </h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a
+                  href="#about"
+                  class="hover:text-potenza-gold transition-colors"
+                  >Our Story</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#st-rocco"
+                  class="hover:text-potenza-gold transition-colors"
+                  >Feast of St. Rocco</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#hall-rental"
+                  class="hover:text-potenza-gold transition-colors"
+                  >Hall Details & Rental</a
+                >
+              </li>
+              <li>
+                <a
+                  href="membership.html"
+                  class="hover:text-potenza-gold transition-colors"
+                  >Membership Application</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Mission -->
+          <div>
+            <h3 class="font-serif text-2xl font-bold text-white mb-6">
+              Our Mission
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+              To preserve and promote Italian culture and heritage in Denver
+              through benevolence, unity, and brotherhood.
+            </p>
+            <div class="flex gap-4">
+              <!-- Social Icons Placeholder -->
+              <a
+                href="#"
+                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-potenza-gold hover:text-white transition-colors"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div
+          class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500"
+        >
+          <p>
+            &copy; <span x-text="new Date().getFullYear()"></span> Societa
+            Nativi di Potenza Basilicata. All rights reserved.
+          </p>
+          <div class="flex gap-4 mt-4 md:mt-0">
+            <span class="text-potenza-green">Amore</span> •
+            <span class="text-white">Benevolenza</span> •
+            <span class="text-potenza-red">Pace</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

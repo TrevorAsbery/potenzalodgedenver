@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Men's Lodge Officers - Potenza Lodge</title>
+    <meta
+      name="description"
+      content="Meet the officers of the Men's Lodge at Societa Nativi di Potenza Basilicata. Dedicated to benevolence, unity, and brotherhood since 1899."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js for Interactivity -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "potenza-green": "#1a472a",
+              "potenza-red": "#8a1c1c",
+              "potenza-gold": "#d4af37",
+              "potenza-cream": "#f9f5f0",
+              "potenza-charcoal": "#2d2d2d",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f9f5f0;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1a472a;
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d4af37;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-potenza-cream text-potenza-charcoal font-sans antialiased selection:bg-potenza-red selection:text-white"
+    x-data="{ mobileMenuOpen: false, scrolled: false }"
+    @scroll.window="scrolled = (window.pageYOffset > 20)"
+  >
+    <!-- Navigation -->
+    <header
+      :class="scrolled ? 'bg-potenza-green/95 backdrop-blur-md shadow-lg py-2' : 'bg-potenza-green py-4'"
+      class="fixed w-full top-0 z-50 transition-all duration-300"
+    >
+      <div class="container mx-auto px-6 flex justify-between items-center">
+        <nav class="hidden md:flex space-x-8 items-center">
+          <a
+            href="index.html#about"
+            class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
+            >Our Story</a
+          >
+          <a
+            href="index.html#st-rocco"
+            class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
+            >Feast of St. Rocco</a
+          >
+          <a
+            href="index.html#hall-rental"
+            class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
+            >Hall Rental</a
+          >
+          <a
+            href="index.html#membership"
+            class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
+            >Membership</a
+          >
+          <a
+            href="index.html#contact"
+            class="px-5 py-2.5 bg-potenza-gold text-potenza-green font-bold rounded hover:bg-white transition-all transform hover:scale-105 shadow-md uppercase text-sm"
+            >Contact Us</a
+          >
+        </nav>
+
+        <button
+          @click="mobileMenuOpen = !mobileMenuOpen"
+          class="md:hidden text-white focus:outline-none"
+        >
+          <svg
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              x-show="!mobileMenuOpen"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              x-show="mobileMenuOpen"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <div
+        x-show="mobileMenuOpen"
+        x-transition.opacity
+        class="md:hidden absolute top-full left-0 w-full bg-potenza-green shadow-xl border-t border-potenza-green/50"
+      >
+        <div class="flex flex-col px-6 py-4 space-y-4">
+          <a
+            href="index.html#about"
+            @click="mobileMenuOpen = false"
+            class="text-white hover:text-potenza-gold block font-medium"
+            >Our Story</a
+          >
+          <a
+            href="index.html#st-rocco"
+            @click="mobileMenuOpen = false"
+            class="text-white hover:text-potenza-gold block font-medium"
+            >Feast of St. Rocco</a
+          >
+          <a
+            href="index.html#hall-rental"
+            @click="mobileMenuOpen = false"
+            class="text-white hover:text-potenza-gold block font-medium"
+            >Hall Rental</a
+          >
+          <a
+            href="index.html#membership"
+            @click="mobileMenuOpen = false"
+            class="text-white hover:text-potenza-gold block font-medium"
+            >Membership</a
+          >
+          <a
+            href="index.html#contact"
+            @click="mobileMenuOpen = false"
+            class="text-potenza-gold font-bold block"
+            >Contact Us</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Officers Page Content -->
+    <section class="py-24 bg-potenza-green pt-32 min-h-screen">
+      <div class="container mx-auto px-6 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <a
+            href="index.html#membership"
+            class="inline-flex items-center gap-2 text-potenza-gold hover:text-white transition-colors mb-8"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span class="text-sm font-medium uppercase tracking-widest">Back to Membership</span>
+          </a>
+          
+          <div class="flex items-center justify-center gap-4 mb-6">
+            <span class="h-px w-12 bg-potenza-gold"></span>
+            <span class="text-potenza-gold font-bold uppercase tracking-widest text-sm">Lodge Officers</span>
+            <span class="h-px w-12 bg-potenza-gold"></span>
+          </div>
+          
+          <h1 class="font-serif text-4xl lg:text-6xl font-bold text-white mb-4">
+            Men's Lodge
+          </h1>
+          <p class="text-potenza-cream/80 text-lg max-w-2xl mx-auto">
+            Dedicated to benevolence, unity, and brotherhood since 1899.
+          </p>
+          <p class="text-potenza-gold font-bold mt-4 text-xl">2025 Officers</p>
+        </div>
+
+        <!-- Officers Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <!-- President -->
+          <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center hover:bg-white/15 transition-colors">
+            <div class="w-16 h-16 bg-potenza-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-potenza-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <p class="text-potenza-gold text-sm font-bold uppercase tracking-widest mb-2">President</p>
+            <h3 class="font-serif text-2xl text-white font-bold">Mike Buscietta</h3>
+          </div>
+
+          <!-- Vice President -->
+          <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center hover:bg-white/15 transition-colors">
+            <div class="w-16 h-16 bg-potenza-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-potenza-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+            </div>
+            <p class="text-potenza-gold text-sm font-bold uppercase tracking-widest mb-2">Vice President</p>
+            <h3 class="font-serif text-2xl text-white font-bold">Ron Rosa</h3>
+          </div>
+
+          <!-- Chaplain -->
+          <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center hover:bg-white/15 transition-colors">
+            <div class="w-16 h-16 bg-potenza-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-potenza-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <p class="text-potenza-gold text-sm font-bold uppercase tracking-widest mb-2">Chaplain</p>
+            <h3 class="font-serif text-2xl text-white font-bold">Father Hughe</h3>
+          </div>
+
+          <!-- Financial Secretary -->
+          <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center hover:bg-white/15 transition-colors">
+            <div class="w-16 h-16 bg-potenza-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-potenza-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <p class="text-potenza-gold text-sm font-bold uppercase tracking-widest mb-2">Financial Secretary</p>
+            <h3 class="font-serif text-2xl text-white font-bold">Peter Ciacco</h3>
+          </div>
+
+          <!-- Trustees -->
+          <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center hover:bg-white/15 transition-colors md:col-span-2">
+            <div class="w-16 h-16 bg-potenza-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-potenza-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <p class="text-potenza-gold text-sm font-bold uppercase tracking-widest mb-2">Trustees</p>
+            <h3 class="font-serif text-2xl text-white font-bold">Larry Lillo</h3>
+            <h3 class="font-serif text-2xl text-white font-bold">Jim Lillo</h3>
+          </div>
+
+          <!-- Flag Bearer -->
+          <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center hover:bg-white/15 transition-colors md:col-span-2">
+            <div class="w-16 h-16 bg-potenza-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-potenza-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+              </svg>
+            </div>
+            <p class="text-potenza-gold text-sm font-bold uppercase tracking-widest mb-2">Flag Bearer</p>
+            <h3 class="font-serif text-2xl text-white font-bold">Mark Randleman</h3>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center">
+          <a
+            href="membership.html"
+            class="inline-block px-8 py-3 bg-potenza-gold text-potenza-green font-bold rounded shadow hover:bg-white transition-colors"
+            >Apply for Membership</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-potenza-charcoal text-white py-8 border-t-4 border-potenza-gold">
+      <div class="container mx-auto px-6 text-center">
+        <p class="text-gray-400 text-sm">
+          &copy; <span x-text="new Date().getFullYear()"></span> Societa Nativi di Potenza Basilicata. All rights reserved.
+        </p>
+        <div class="flex justify-center gap-4 mt-4 text-xs">
+          <span class="text-potenza-green">Amore</span> •
+          <span class="text-white">Benevolenza</span> •
+          <span class="text-potenza-red">Pace</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
