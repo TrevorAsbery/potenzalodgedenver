@@ -829,62 +829,48 @@
           <!-- Video Side -->
           <div class="md:w-1/2">
             <div
-              class="relative rounded-lg overflow-hidden shadow-2xl cursor-pointer"
-              @click="openVideoFullscreen()"
-              x-data="{
-                   openVideoFullscreen() {
-                     const video = $refs.rentalVideo;
-                     video.muted = false;
-                     
-                     const enterFullscreen = () => {
-                       if (video.requestFullscreen) {
-                         video.requestFullscreen();
-                       } else if (video.webkitRequestFullscreen) {
-                         video.webkitRequestFullscreen();
-                       } else if (video.mozRequestFullScreen) {
-                         video.mozRequestFullScreen();
-                       } else if (video.msRequestFullscreen) {
-                         video.msRequestFullscreen();
-                       }
-                     };
-                     
-                     enterFullscreen();
-                     
-                     const playVideo = () => {
-                       video.play().catch(e => console.log('Play failed:', e));
-                     };
-                     
-                     video.addEventListener('fullscreenchange', function onFullscreenChange() {
-                       if (!document.fullscreenElement && !document.webkitFullscreenElement && 
-                           !document.mozFullScreenElement && !document.msFullscreenElement) {
-                         video.pause();
-                         video.currentTime = 0;
-                         video.muted = true;
-                         video.removeEventListener('fullscreenchange', onFullscreenChange);
-                       }
-                     }, { once: true });
-                     
-                     video.addEventListener('webkitfullscreenchange', function onWebkitFullscreenChange() {
-                       if (!document.webkitFullscreenElement) {
-                         video.pause();
-                         video.currentTime = 0;
-                         video.muted = true;
-                         video.removeEventListener('webkitfullscreenchange', onWebkitFullscreenChange);
-                       }
-                     }, { once: true });
-                     
-                     setTimeout(playVideo, 100);
-                   }
-                 }"
+              class="relative rounded-lg overflow-hidden shadow-2xl aspect-video bg-black"
+              x-data="{ showVideo: false }"
             >
-              <video
-                x-ref="rentalVideo"
-                src="./rentalvid.mp4"
-                preload="metadata"
-                muted
-                class="w-full h-full object-cover"
-                @loadedmetadata="this.currentTime = 0.1"
-              ></video>
+              <button
+                type="button"
+                class="absolute inset-0 w-full h-full group"
+                @click="showVideo = true"
+                x-show="!showVideo"
+                aria-label="Play venue rental video"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  src="https://i.ytimg.com/vi/Ww60TctAyqI/hqdefault.jpg"
+                  alt="Potenza Lodge Hall in Denver, Colorado video thumbnail"
+                  loading="lazy"
+                />
+                <span
+                  class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors"
+                >
+                  <span
+                    class="flex items-center justify-center w-16 h-16 rounded-full bg-white/90 text-potenza-red shadow-lg group-hover:scale-105 transition-transform"
+                  >
+                    <svg
+                      class="w-7 h-7 translate-x-0.5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M8 5v14l11-7z"></path>
+                    </svg>
+                  </span>
+                </span>
+              </button>
+              <template x-if="showVideo">
+                <iframe
+                  class="w-full h-full"
+                  src="https://www.youtube.com/embed/Ww60TctAyqI?rel=0&autoplay=1"
+                  title="Potenza Lodge Hall Rental Video"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </template>
             </div>
           </div>
 
