@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membership Application - Potenza Lodge</title>
+    <meta
+      name="description"
+      content="Apply for Men's Lodge, Ladies Auxiliary, or Social membership at Societa Nativi di Potenza Basilicata, Denver."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "potenza-green": "#1a472a",
+              "potenza-red": "#8a1c1c",
+              "potenza-gold": "#d4af37",
+              "potenza-cream": "#f9f5f0",
+              "potenza-charcoal": "#2d2d2d",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f9f5f0;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1a472a;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-potenza-cream text-potenza-charcoal font-sans antialiased selection:bg-potenza-red selection:text-white"
+    x-data="{
+      step: 1,
+      group: '',
+      mobileMenuOpen: false,
+      scrolled: false,
+      init() {
+        const p = new URLSearchParams(window.location.search).get('group');
+        if (p === 'mens' || p === 'ladies' || p === 'social') {
+          this.group = p;
+          this.step = 2;
+        }
+      },
+      headerBg() {
+        if (this.group === 'ladies') return this.scrolled ? 'bg-potenza-red/95 backdrop-blur-md shadow-lg' : 'bg-potenza-red';
+        if (this.group === 'mens') return this.scrolled ? 'bg-potenza-green/95 backdrop-blur-md shadow-lg' : 'bg-potenza-green';
+        if (this.group === 'social') return this.scrolled ? 'bg-neutral-800/95 backdrop-blur-md shadow-lg' : 'bg-neutral-800';
+        return this.scrolled ? 'bg-potenza-charcoal/95 backdrop-blur-md shadow-lg' : 'bg-potenza-charcoal';
+      },
+      accentBorder() {
+        if (this.group === 'ladies') return 'border-potenza-red';
+        if (this.group === 'mens') return 'border-potenza-green';
+        if (this.group === 'social') return 'border-potenza-gold';
+        return 'border-potenza-gold';
+      },
+      accentText() {
+        if (this.group === 'ladies') return 'text-potenza-red';
+        if (this.group === 'mens') return 'text-potenza-green';
+        return 'text-potenza-gold';
+      },
+      accentBtn() {
+        if (this.group === 'ladies') return 'bg-potenza-red hover:bg-potenza-red/90 text-white';
+        if (this.group === 'mens') return 'bg-potenza-green hover:bg-potenza-green/90 text-white';
+        if (this.group === 'social') return 'bg-potenza-gold hover:bg-potenza-gold/90 text-potenza-charcoal';
+        return 'bg-potenza-charcoal hover:bg-potenza-charcoal/90 text-white';
+      },
+      pdfHref() {
+        if (this.group === 'mens') return 'documents/Application2015.pdf';
+        if (this.group === 'ladies') return 'documents/ApplicationAux2021.pdf';
+        if (this.group === 'social') return 'documents/ApplicationSocial2015.pdf';
+        return '#';
+      },
+      pdfLabel() {
+        if (this.group === 'mens') return 'Men\u0027s Lodge application (PDF)';
+        if (this.group === 'ladies') return 'Ladies Auxiliary application (PDF)';
+        if (this.group === 'social') return 'Social membership application (PDF)';
+        return '';
+      },
+      selectGroup(g) {
+        this.group = g;
+        this.step = 2;
+      },
+      next() {
+        if (this.step === 2) {
+          var f = document.getElementById('membership-application-form');
+          if (f && !f.checkValidity()) {
+            f.reportValidity();
+            return;
+          }
+        }
+        if (this.step < 4) this.step++;
+      },
+      back() { if (this.step > 1) this.step--; },
+    }"
+    @scroll.window="scrolled = (window.pageYOffset > 20)"
+  >
+    <header
+      :class="(scrolled ? 'py-2 shadow-lg' : 'py-4') + ' ' + headerBg()"
+      class="fixed w-full top-0 z-50 transition-all duration-300"
+    >
+      <div class="container mx-auto px-6 flex justify-between items-center">
+        <a
+          href="index.html#membership"
+          class="text-white/90 hover:text-potenza-gold text-sm font-medium uppercase tracking-wide"
+          >← Membership</a
+        >
+        <nav class="hidden md:flex items-center gap-6">
+          <a
+            href="mens-lodge.html"
+            class="text-white/80 hover:text-potenza-gold text-xs font-medium uppercase"
+            >Men's Lodge</a
+          >
+          <a
+            href="ladies-auxiliary.html"
+            class="text-white/80 hover:text-potenza-gold text-xs font-medium uppercase"
+            >Ladies Auxiliary</a
+          >
+          <a
+            href="membership-application.html?group=social"
+            class="text-white/80 hover:text-potenza-gold text-xs font-medium uppercase"
+            >Social</a
+          >
+        </nav>
+        <button
+          type="button"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+          class="md:hidden text-white focus:outline-none"
+          aria-label="Menu"
+        >
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              x-show="!mobileMenuOpen"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              x-show="mobileMenuOpen"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        x-show="mobileMenuOpen"
+        x-transition.opacity
+        class="md:hidden absolute top-full left-0 w-full bg-potenza-charcoal border-t border-white/10"
+      >
+        <div class="flex flex-col px-6 py-4 gap-3">
+          <a href="mens-lodge.html" class="text-white text-sm">Men's Lodge</a>
+          <a href="ladies-auxiliary.html" class="text-white text-sm">Ladies Auxiliary</a>
+          <a href="membership-application.html?group=social" class="text-white text-sm">Social membership</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-28 pb-16 px-6">
+      <div class="container mx-auto max-w-2xl">
+        <div class="text-center mb-10">
+          <h1 class="font-serif text-3xl md:text-4xl font-bold text-potenza-green mb-2">
+            Membership application
+          </h1>
+          <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto mb-4">
+            Apply online below, or download the printable application for the membership you want.
+            <strong class="font-semibold text-potenza-charcoal"
+              >Men’s Lodge, Ladies Auxiliary, and Social membership each use a different form</strong
+            >—use the PDF that matches your application.
+          </p>
+          <ul
+            class="text-left text-sm text-gray-600 max-w-xl mx-auto space-y-2.5 bg-white/60 rounded-lg border border-gray-200/80 px-5 py-4"
+          >
+            <li>
+              <a
+                href="documents/Application2015.pdf"
+                class="font-semibold text-potenza-green underline decoration-potenza-green/40 hover:decoration-potenza-green"
+                >Men’s Lodge</a
+              >
+              — printable application (PDF)
+            </li>
+            <li>
+              <a
+                href="documents/ApplicationAux2021.pdf"
+                class="font-semibold text-potenza-red underline decoration-potenza-red/40 hover:decoration-potenza-red"
+                >Ladies Auxiliary</a
+              >
+              — printable application (PDF)
+            </li>
+            <li>
+              <a
+                href="documents/ApplicationSocial2015.pdf"
+                class="font-semibold text-potenza-charcoal underline underline-offset-2 hover:text-potenza-green"
+                >Social membership</a
+              >
+              — printable application (PDF)
+            </li>
+          </ul>
+        </div>
+
+        <!-- Progress -->
+        <div class="flex justify-center gap-2 mb-10" x-show="step > 1">
+          <template x-for="s in [2,3,4]" :key="s">
+            <div
+              class="h-1.5 rounded-full transition-all duration-300"
+              :class="step >= s ? (group === 'ladies' ? 'bg-potenza-red w-10' : group === 'mens' ? 'bg-potenza-green w-10' : group === 'social' ? 'bg-potenza-gold w-10' : 'bg-potenza-gold w-10') : 'bg-gray-200 w-6'"
+            ></div>
+          </template>
+        </div>
+
+        <form
+          id="membership-application-form"
+          action="https://formsubmit.co/el/vukope"
+          method="POST"
+          class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden"
+        >
+          <!-- FormSubmit: keep _captcha false on ALL hosts. If we omit it on production, reCAPTCHA turns on; it often fails to complete on external sites (works on formsubmit.co tester). See documentation _captcha. -->
+          <input type="hidden" name="_subject" value="Potenza Lodge — New membership application" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" id="formsubmit-next" value="" />
+          <input type="hidden" name="_captcha" value="false" />
+
+          <!-- Always in the form tree (not inside <template>) so the POST body always includes membership -->
+          <input
+            type="hidden"
+            name="Membership type"
+            :value="group === 'mens' ? 'Men\u0027s Lodge' : group === 'ladies' ? 'Ladies Auxiliary' : group === 'social' ? 'Social membership' : ''"
+          />
+
+          <!-- Step 1: choose group -->
+          <div x-show="step === 1" class="p-8 md:p-10">
+            <h2 class="font-serif text-xl font-bold text-potenza-charcoal mb-6">
+              Which membership are you interested in?
+            </h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <button
+                type="button"
+                @click="selectGroup('mens')"
+                class="p-6 rounded-lg border-2 border-potenza-green/30 bg-potenza-cream/50 hover:border-potenza-green hover:shadow-md text-left transition-all"
+              >
+                <span class="font-serif text-lg font-bold text-potenza-green block mb-1"
+                  >Men's Lodge</span
+                >
+                <span class="text-sm text-gray-600">Brotherhood, benevolence, and unity.</span>
+              </button>
+              <button
+                type="button"
+                @click="selectGroup('ladies')"
+                class="p-6 rounded-lg border-2 border-potenza-red/30 bg-potenza-cream/50 hover:border-potenza-red hover:shadow-md text-left transition-all"
+              >
+                <span class="font-serif text-lg font-bold text-potenza-red block mb-1"
+                  >Ladies Auxiliary</span
+                >
+                <span class="text-sm text-gray-600">Charity, culture, and community.</span>
+              </button>
+              <button
+                type="button"
+                @click="selectGroup('social')"
+                class="p-6 rounded-lg border-2 border-potenza-gold/50 bg-potenza-cream/50 hover:border-potenza-gold hover:shadow-md text-left transition-all sm:col-span-2 lg:col-span-1"
+              >
+                <span class="font-serif text-lg font-bold text-potenza-charcoal block mb-1"
+                  >Social membership</span
+                >
+                <span class="text-sm text-gray-600">A separate application from Men’s Lodge and Ladies Auxiliary.</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: applicant -->
+          <div x-show="step === 2" class="p-8 md:p-10 space-y-5" x-cloak>
+            <h2
+              class="font-serif text-xl font-bold border-b pb-3 mb-2"
+              :class="accentBorder()"
+            >
+              About you
+            </h2>
+
+            <p
+              class="text-sm text-gray-700 bg-potenza-cream border border-potenza-gold/35 rounded-lg px-4 py-3"
+              x-show="group"
+            >
+              <span class="font-medium text-potenza-charcoal">Printable form for this membership:</span>
+              <a
+                :href="pdfHref()"
+                class="font-semibold underline underline-offset-2 ml-1"
+                :class="group === 'mens' ? 'text-potenza-green' : group === 'ladies' ? 'text-potenza-red' : 'text-potenza-charcoal'"
+                x-text="pdfLabel()"
+              ></a>
+            </p>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="full_name"
+                >Full legal name *</label
+              >
+              <input
+                id="full_name"
+                name="Full legal name"
+                type="text"
+                :required="step === 2"
+                autocomplete="name"
+                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold focus:border-potenza-gold outline-none"
+              />
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="dob"
+                  >Date of birth *</label
+                >
+                <input
+                  id="dob"
+                  name="Date of birth"
+                  type="date"
+                  :required="step === 2"
+                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="phone"
+                  >Phone *</label
+                >
+                <input
+                  id="phone"
+                  name="Phone"
+                  type="tel"
+                  :required="step === 2"
+                  autocomplete="tel"
+                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="email"
+                >Email *</label
+              >
+              <input
+                id="email"
+                name="Email"
+                type="email"
+                :required="step === 2"
+                autocomplete="email"
+                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="address"
+                >Street address *</label
+              >
+              <input
+                id="address"
+                name="Street address"
+                type="text"
+                :required="step === 2"
+                autocomplete="street-address"
+                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+              />
+            </div>
+            <div class="grid sm:grid-cols-3 gap-4">
+              <div class="sm:col-span-1">
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="city">City *</label>
+                <input
+                  id="city"
+                  name="City"
+                  type="text"
+                  :required="step === 2"
+                  autocomplete="address-level2"
+                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="state">State *</label>
+                <input
+                  id="state"
+                  name="State"
+                  type="text"
+                  :required="step === 2"
+                  autocomplete="address-level1"
+                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="zip">ZIP *</label>
+                <input
+                  id="zip"
+                  name="ZIP"
+                  type="text"
+                  :required="step === 2"
+                  autocomplete="postal-code"
+                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="occupation"
+                >Occupation / employer</label
+              >
+              <input
+                id="occupation"
+                name="Occupation or employer"
+                type="text"
+                autocomplete="organization-title"
+                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="heritage"
+                >Italian heritage / family town or region (if applicable)</label
+              >
+              <input
+                id="heritage"
+                name="Heritage or family origin"
+                type="text"
+                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                placeholder="e.g. Potenza, Basilicata"
+              />
+            </div>
+
+            <div class="flex justify-between pt-4">
+              <button
+                type="button"
+                @click="step = 1; group = ''"
+                class="text-gray-600 hover:text-potenza-charcoal text-sm font-medium"
+              >
+                ← Back
+              </button>
+              <button
+                type="button"
+                @click="next()"
+                :class="accentBtn()"
+                class="px-6 py-2.5 rounded-lg font-semibold text-sm"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3: emergency + notes -->
+          <div x-show="step === 3" class="p-8 md:p-10 space-y-5" x-cloak>
+            <h2
+              class="font-serif text-xl font-bold border-b pb-3 mb-2"
+              :class="accentBorder()"
+            >
+              Emergency contact &amp; details
+            </h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="ec_name"
+                  >Emergency contact name</label
+                >
+                <input
+                  id="ec_name"
+                  name="Emergency contact name"
+                  type="text"
+                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="ec_phone"
+                  >Emergency contact phone</label
+                >
+                <input
+                  id="ec_phone"
+                  name="Emergency contact phone"
+                  type="tel"
+                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="sponsor"
+                >Sponsor or member who referred you (if any)</label
+              >
+              <input
+                id="sponsor"
+                name="Sponsor or referral"
+                type="text"
+                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="heard"
+                >How did you hear about the lodge?</label
+              >
+              <input
+                id="heard"
+                name="How they heard about us"
+                type="text"
+                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="message"
+                >Anything else we should know?</label
+              >
+              <textarea
+                id="message"
+                name="Additional message"
+                rows="4"
+                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none resize-y"
+              ></textarea>
+            </div>
+
+            <div class="flex justify-between pt-4">
+              <button
+                type="button"
+                @click="back()"
+                class="text-gray-600 hover:text-potenza-charcoal text-sm font-medium"
+              >
+                ← Back
+              </button>
+              <button
+                type="button"
+                @click="next()"
+                :class="accentBtn()"
+                class="px-6 py-2.5 rounded-lg font-semibold text-sm"
+              >
+                Review
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 4: review -->
+          <div x-show="step === 4" class="p-8 md:p-10 space-y-6" x-cloak>
+            <h2
+              class="font-serif text-xl font-bold border-b pb-3"
+              :class="accentBorder()"
+            >
+              Review &amp; submit
+            </h2>
+            <p class="text-sm text-gray-600">
+              By submitting, you agree that the lodge may contact you about membership. This form is
+              delivered by email—you may be asked to confirm a captcha on first use.
+            </p>
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                name="Applicant confirms information is accurate"
+                value="Yes — I confirm my information is accurate to the best of my knowledge."
+                :required="step === 4"
+                class="mt-1 rounded border-gray-300 text-potenza-green focus:ring-potenza-gold"
+              />
+              <span class="text-sm text-gray-700"
+                >I confirm the information I provided is accurate to the best of my knowledge. *</span
+              >
+            </label>
+
+            <div class="flex justify-between pt-4">
+              <button
+                type="button"
+                @click="back()"
+                class="text-gray-600 hover:text-potenza-charcoal text-sm font-medium"
+              >
+                ← Back
+              </button>
+              <button
+                type="submit"
+                :class="accentBtn()"
+                class="px-8 py-3 rounded-lg font-bold text-sm shadow-md"
+              >
+                Submit application
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <p class="text-center text-xs text-gray-500 mt-8 max-w-lg mx-auto leading-relaxed">
+          Prefer paper? Download the application that matches your membership:
+          <a href="documents/Application2015.pdf" class="text-potenza-green font-medium underline">Men’s Lodge</a
+          >,
+          <a href="documents/ApplicationAux2021.pdf" class="text-potenza-red font-medium underline"
+            >Ladies Auxiliary</a
+          >, or
+          <a href="documents/ApplicationSocial2015.pdf" class="text-potenza-charcoal font-medium underline"
+            >Social</a
+          >. Bring or mail it to the lodge. Questions:
+          <a href="tel:3034771722" class="underline">303-477-1722</a>.
+        </p>
+      </div>
+    </main>
+
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var host = window.location.hostname;
+        var isLocal =
+          host === "localhost" || host === "127.0.0.1" || host === "" || host === "[::1]";
+
+        var nextEl = document.getElementById("formsubmit-next");
+        if (nextEl) {
+          if (isLocal) {
+            /* No localhost URL in _next (FormSubmit rejects or falls back to origin /). Use their thank-you page. */
+            nextEl.value = "https://formsubmit.co/thanks.html";
+          } else {
+            nextEl.value = new URL("membership-thanks.html", window.location.href).href;
+          }
+        }
+
+        var form = document.getElementById("membership-application-form");
+        if (form) {
+          /**
+           * Use a normal form POST (no fetch). FormSubmit responds with redirects; browsers do not
+           * expose those to fetch() from another origin without CORS, so fetch fails after redirect.
+           */
+          form.addEventListener("submit", function () {
+            var action = form.getAttribute("action");
+            console.log("[FormSubmit] submitting (native POST, full navigation) →", action);
+            var names = [];
+            new FormData(form).forEach(function (_, k) {
+              if (names.indexOf(k) === -1) names.push(k);
+            });
+            console.log("[FormSubmit] included field names:", names.join(", "));
+            console.log(
+              "[FormSubmit] To inspect status/redirect: DevTools → Network → enable «Preserve log» → submit → click the request to formsubmit.co"
+            );
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
