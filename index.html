@@ -3,11 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Potenza Lodge - Societa Nativi di Potenza Basilicata</title>
+
+    <!-- Primary Meta -->
+    <title>Potenza Lodge | Societa Nativi di Potenza Basilicata — Denver, CO</title>
     <meta
       name="description"
-      content="Preserving Italian Heritage in Denver Since 1899. Join us for the Feast of St. Rocco, community events, and hall rentals."
+      content="Colorado's oldest Italian organization, founded 1899. Preserving the heritage, faith, and traditions of Potenza, Italy in Denver. Join us for the Feast of St. Rocco, community events, and historic hall rentals."
     />
+    <meta name="author" content="Societa Nativi di Potenza Basilicata" />
+    <link rel="canonical" href="https://potenzalodgedenver.com/" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://potenzalodgedenver.com/" />
+    <meta property="og:title" content="Potenza Lodge | Italian Heritage in Denver Since 1899" />
+    <meta
+      property="og:description"
+      content="Join Denver's oldest Italian organization for the Feast of St. Rocco, community events, and hall rentals in the heart of North Denver."
+    />
+    <meta property="og:image" content="https://potenzalodgedenver.com/potenza-remove-background.com.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Potenza Lodge" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Potenza Lodge | Italian Heritage in Denver Since 1899" />
+    <meta
+      name="twitter:description"
+      content="Colorado's oldest Italian organization. Feast of St. Rocco, community events, and historic hall rentals in North Denver."
+    />
+    <meta name="twitter:image" content="https://potenzalodgedenver.com/potenza-remove-background.com.png" />
+
+    <!-- Favicons & App Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#1a472a" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -454,15 +487,93 @@
                 src="./lodge-bar.jpg"
                 alt="Potenza Lodge Bar"
                 class="rounded-lg shadow-lg w-full h-48 sm:h-56 md:h-64 object-cover md:translate-y-8"
+                loading="lazy"
               />
               <img
                 src="./lodge-flowers.jpg"
                 alt="Potenza Lodge Event Setup"
                 class="rounded-lg shadow-lg w-full h-48 sm:h-56 md:h-64 object-cover"
+                loading="lazy"
               />
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section id="events" class="py-20 bg-white border-t border-gray-100">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+          <div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="h-px w-10 bg-potenza-gold"></span>
+              <span class="text-potenza-red text-sm font-bold uppercase tracking-[0.15em]">Community</span>
+            </div>
+            <h2 class="font-serif text-4xl lg:text-5xl font-bold text-potenza-green">Upcoming Events</h2>
+          </div>
+          <a href="#contact" class="text-potenza-green font-medium inline-flex items-center gap-2 group text-sm">
+            View full calendar
+            <span class="group-hover:translate-x-0.5 transition">→</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" x-data="{
+          events: [
+            {
+              date: 'Aug 15–17',
+              year: '2025',
+              title: 'Feast of St. Rocco',
+              desc: 'Denver’s most authentic Italian celebration. Procession, Mass, sausage sandwiches, live music & bazaar.',
+              location: 'Potenza Lodge & North Denver streets',
+              cta: 'Learn more',
+              href: '#st-rocco'
+            },
+            {
+              date: 'Sep 20',
+              year: '2025',
+              title: 'Members Meeting & Dinner',
+              desc: 'Monthly lodge meeting followed by a family-style Italian dinner. All members welcome.',
+              location: 'Potenza Lodge Hall',
+              cta: null,
+              href: null
+            },
+            {
+              date: 'Oct 11',
+              year: '2025',
+              title: 'Fall Harvest Social',
+              desc: 'An evening of wine, live music, and community. Open to members and their guests.',
+              location: 'Potenza Lodge Hall',
+              cta: null,
+              href: null
+            }
+          ]
+        }">
+          <template x-for="event in events" :key="event.title">
+            <div class="group bg-potenza-cream border border-gray-100 rounded-2xl p-7 flex flex-col hover:shadow-lg hover:border-potenza-gold/30 transition-all">
+              <div class="flex items-baseline gap-3 mb-4">
+                <span class="font-serif text-3xl font-bold text-potenza-green" x-text="event.date"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-potenza-gold" x-text="event.year"></span>
+              </div>
+
+              <h3 class="font-serif text-2xl text-potenza-charcoal mb-3 group-hover:text-potenza-green transition-colors" x-text="event.title"></h3>
+              <p class="text-gray-600 text-sm leading-relaxed flex-1" x-text="event.desc"></p>
+
+              <div class="mt-5 pt-4 border-t border-gray-200 flex items-center justify-between text-sm">
+                <div class="text-gray-500">
+                  <span x-text="event.location"></span>
+                </div>
+                <template x-if="event.href">
+                  <a :href="event.href" class="font-semibold text-potenza-red hover:text-potenza-green transition-colors" x-text="event.cta"></a>
+                </template>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <p class="text-center text-xs text-gray-500 mt-8 max-w-md mx-auto">
+          Events are subject to change. For the most current information, call the lodge or ask a member.
+        </p>
       </div>
     </section>
 
@@ -670,25 +781,17 @@
                 devoted his life to nursing victims of the disease, performing
                 miraculous healings across Italy...
               </p>
-              <div
-                class="flex items-center justify-center gap-2 mt-6 text-potenza-gold font-medium"
-              >
-                <span class="text-sm uppercase tracking-widest"
-                  >Read His Full Story</span
+
+              <!-- Clear call-to-action -->
+              <div class="flex justify-center mt-7">
+                <span
+                  class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-potenza-gold/60 text-potenza-gold text-xs font-bold uppercase tracking-[0.12em] group-hover:bg-potenza-gold group-hover:text-potenza-red group-hover:border-potenza-gold transition-all"
                 >
-                <svg
-                  class="w-5 h-5 transform group-hover:translate-y-1 transition-transform"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                  Read the full story
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
               </div>
             </div>
 
@@ -845,6 +948,7 @@
                   alt="Potenza Lodge Hall in Denver, Colorado video thumbnail"
                   loading="lazy"
                 />
+                <span class="absolute bottom-3 right-3 bg-black/70 text-white text-[10px] px-2 py-0.5 rounded font-medium tracking-wide">WATCH 1:42</span>
                 <span
                   class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors"
                 >
@@ -945,6 +1049,107 @@
                 ></path>
               </svg>
             </a>
+          </div>
+        </div>
+
+        <!-- Hall Rental Inquiry Form -->
+        <div class="mt-16 max-w-3xl mx-auto" x-data="{ submitted: false }">
+          <div class="text-center mb-8">
+            <div class="inline-flex items-center gap-2 text-potenza-green text-sm font-bold uppercase tracking-[0.15em]">
+              <span class="h-px w-8 bg-potenza-gold"></span>
+              RESERVE YOUR DATE
+              <span class="h-px w-8 bg-potenza-gold"></span>
+            </div>
+            <h3 class="font-serif text-3xl text-potenza-charcoal mt-3">Request Information</h3>
+            <p class="text-gray-600 mt-2 text-sm">Tell us about your event and we’ll get back to you within 48 hours.</p>
+          </div>
+
+          <form
+            x-show="!submitted"
+            @submit.prevent="
+              submitted = true;
+              const form = $event.target;
+              setTimeout(() => form.submit(), 50);
+            "
+            action="https://formsubmit.co/c3ef521ddbea92bcdd796f2734e0a71a"
+            method="POST"
+            class="bg-potenza-cream border border-gray-200 rounded-2xl p-8 md:p-10 shadow-sm"
+          >
+            <input type="hidden" name="_subject" value="Potenza Lodge — Hall Rental Inquiry" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://potenzalodgedenver.com/#hall-rental" />
+            <input type="hidden" name="_captcha" value="false" />
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1.5" for="rental_name">Full Name *</label>
+                <input id="rental_name" name="Full Name" type="text" required class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold focus:border-potenza-gold outline-none bg-white" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1.5" for="rental_phone">Phone *</label>
+                <input id="rental_phone" name="Phone" type="tel" required class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold focus:border-potenza-gold outline-none bg-white" />
+              </div>
+              <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-gray-700 mb-1.5" for="rental_email">Email Address *</label>
+                <input id="rental_email" name="Email" type="email" required class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold focus:border-potenza-gold outline-none bg-white" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1.5" for="event_type">Type of Event *</label>
+                <select id="event_type" name="Event Type" required class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold focus:border-potenza-gold outline-none bg-white">
+                  <option value="">Select event type...</option>
+                  <option>Wedding Reception</option>
+                  <option>Quinceañera</option>
+                  <option>Birthday / Anniversary</option>
+                  <option>Corporate Meeting / Retreat</option>
+                  <option>Community or Cultural Event</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1.5" for="guest_count">Expected Guests</label>
+                <input id="guest_count" name="Expected Guests" type="text" placeholder="e.g. 120" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold focus:border-potenza-gold outline-none bg-white" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1.5" for="event_date">Preferred Date(s)</label>
+                <input id="event_date" name="Preferred Date(s)" type="text" placeholder="e.g. October 18, 2025" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold focus:border-potenza-gold outline-none bg-white" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1.5" for="event_time">Time of Day</label>
+                <input id="event_time" name="Time of Day" type="text" placeholder="e.g. 5pm–11pm" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold focus:border-potenza-gold outline-none bg-white" />
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <label class="block text-sm font-medium text-gray-700 mb-1.5" for="rental_message">Tell us more about your event</label>
+              <textarea id="rental_message" name="Event Details" rows="4" class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-potenza-gold focus:border-potenza-gold outline-none resize-y bg-white" placeholder="Any special requirements, catering needs, or questions..."></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="mt-6 w-full md:w-auto px-10 py-3.5 bg-potenza-green hover:bg-potenza-green/90 text-white font-bold rounded-lg transition-colors shadow-md flex items-center justify-center gap-2"
+            >
+              Send Inquiry
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7V3" />
+              </svg>
+            </button>
+
+            <p class="text-xs text-gray-500 mt-4">
+              We typically respond within 48 hours. You can also reach us directly at <a href="tel:3034771722" class="underline">303-477-1722</a>.
+            </p>
+          </form>
+
+          <!-- Success State -->
+          <div x-show="submitted" x-cloak class="bg-white border border-potenza-green/20 rounded-2xl p-10 text-center">
+            <div class="mx-auto w-16 h-16 bg-potenza-green/10 rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-potenza-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h4 class="font-serif text-2xl text-potenza-green mb-2">Thank you</h4>
+            <p class="text-gray-600 max-w-sm mx-auto">Your inquiry was sent. A member of the lodge will contact you shortly to discuss availability and details.</p>
           </div>
         </div>
       </div>
@@ -1169,18 +1374,29 @@
               To preserve and promote Italian culture and heritage in Denver
               through benevolence, unity, and brotherhood.
             </p>
-            <div class="flex gap-4">
-              <!-- Social Icons Placeholder -->
-              <a
-                href="#"
-                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-potenza-gold hover:text-white transition-colors"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                  />
-                </svg>
-              </a>
+            <div>
+              <div class="text-xs uppercase tracking-widest text-white/50 mb-3 font-medium">Stay Connected</div>
+              <div class="flex gap-3">
+                <a
+                  href="https://www.facebook.com/search/top?q=potenza%20lodge%20denver"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-potenza-gold hover:text-potenza-green text-sm rounded-lg transition-colors"
+                  title="Search for Potenza Lodge on Facebook"
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                  <span class="text-xs font-semibold">Facebook</span>
+                </a>
+                <a
+                  href="mailto:lmlokken@msn.com"
+                  class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-sm rounded-lg transition-colors"
+                >
+                  <span class="text-xs font-semibold">Email the Lodge</span>
+                </a>
+              </div>
+              <p class="text-[10px] text-white/40 mt-2 leading-tight">Updates for the Feast of St. Rocco are often posted on Facebook.</p>
             </div>
           </div>
         </div>
