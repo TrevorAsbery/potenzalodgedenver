@@ -21,9 +21,7 @@
       property="og:description"
       content="Join Denver's oldest Italian organization for the Feast of St. Rocco, community events, and hall rentals in the heart of North Denver."
     />
-    <meta property="og:image" content="https://potenzalodgedenver.com/potenza-remove-background.com.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image" content="https://potenzalodgedenver.com/assets/potenza-logo-hero.png" />
     <meta property="og:site_name" content="Potenza Lodge" />
     <meta property="og:locale" content="en_US" />
 
@@ -34,7 +32,7 @@
       name="twitter:description"
       content="Colorado's oldest Italian organization. Feast of St. Rocco, community events, and historic hall rentals in North Denver."
     />
-    <meta name="twitter:image" content="https://potenzalodgedenver.com/potenza-remove-background.com.png" />
+    <meta name="twitter:image" content="https://potenzalodgedenver.com/assets/potenza-logo-hero.png" />
 
     <!-- Favicons & App Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -58,6 +56,7 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
+    <script defer src="formbold.js"></script>
 
     <!-- Tailwind Config for Custom Colors -->
     <script>
@@ -78,7 +77,7 @@
             backgroundImage: {
               "hero-pattern": "url('./shutterstock-152854481.webp')",
               "st-rocco-pattern":
-                "linear-gradient(to right, rgba(138, 28, 28, 0.9), rgba(138, 28, 28, 0.8)), url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
+                "linear-gradient(to right, rgba(138, 28, 28, 0.92), rgba(138, 28, 28, 0.86)), url('./lodge-flowers.jpg')",
             },
           },
         },
@@ -120,6 +119,10 @@
         color: #d4af37;
         font-size: 1.2rem;
       }
+
+      [x-cloak] {
+        display: none !important;
+      }
     </style>
   </head>
   <body
@@ -133,31 +136,48 @@
       class="fixed w-full top-0 z-50 transition-all duration-300"
     >
       <div class="container mx-auto px-6 flex justify-between items-center">
+        <a
+          href="index.html"
+          class="font-serif text-xl font-bold text-white hover:text-potenza-gold transition-colors"
+          aria-label="Potenza Lodge home"
+          >Potenza Lodge</a
+        >
+
         <!-- Desktop Menu -->
-        <nav class="hidden md:flex space-x-8 items-center">
+        <nav class="hidden lg:flex space-x-5 items-center">
           <a
             href="#about"
-            class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
+            class="text-white hover:text-potenza-gold text-xs font-medium tracking-wide transition-colors uppercase"
             >Our Story</a
           >
           <a
             href="#st-rocco"
-            class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
+            class="text-white hover:text-potenza-gold text-xs font-medium tracking-wide transition-colors uppercase"
             >Feast of St. Rocco</a
           >
           <a
             href="#hall-rental"
-            class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
+            class="text-white hover:text-potenza-gold text-xs font-medium tracking-wide transition-colors uppercase"
             >Hall Rental</a
           >
           <a
             href="#membership"
-            class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
+            class="text-white hover:text-potenza-gold text-xs font-medium tracking-wide transition-colors uppercase"
             >Membership</a
           >
           <a
-            href="#contact"
-            class="px-5 py-2.5 bg-potenza-gold text-potenza-green font-bold rounded hover:bg-white transition-all transform hover:scale-105 shadow-md uppercase text-sm"
+            href="members.html"
+            class="text-white hover:text-potenza-gold text-xs font-medium tracking-wide transition-colors uppercase"
+            >Resources</a
+          >
+          <a
+            href="gallery.html"
+            class="text-white hover:text-potenza-gold text-xs font-medium tracking-wide transition-colors uppercase"
+            >Gallery</a
+          >
+          <a
+            href="contact.html"
+            class="px-4 py-2.5 bg-potenza-gold text-potenza-green font-bold rounded hover:bg-white transition-all transform hover:scale-105 shadow-md uppercase text-xs"
             >Contact Us</a
           >
         </nav>
@@ -165,7 +185,10 @@
         <!-- Mobile Menu Button -->
         <button
           @click="mobileMenuOpen = !mobileMenuOpen"
-          class="md:hidden text-white focus:outline-none"
+          class="lg:hidden text-white focus:outline-none"
+          aria-label="Menu"
+          :aria-expanded="mobileMenuOpen"
+          aria-controls="home-mobile-menu"
         >
           <svg
             class="w-8 h-8"
@@ -193,9 +216,10 @@
 
       <!-- Mobile Menu Dropdown -->
       <div
+        id="home-mobile-menu"
         x-show="mobileMenuOpen"
         x-transition.opacity
-        class="md:hidden absolute top-full left-0 w-full bg-potenza-green shadow-xl border-t border-potenza-green/50"
+        class="lg:hidden absolute top-full left-0 w-full bg-potenza-green shadow-xl border-t border-potenza-green/50"
       >
         <div class="flex flex-col px-6 py-4 space-y-4">
           <a
@@ -223,7 +247,19 @@
             >Membership</a
           >
           <a
-            href="#contact"
+            href="members.html"
+            @click="mobileMenuOpen = false"
+            class="text-white hover:text-potenza-gold block font-medium"
+            >Member Resources</a
+          >
+          <a
+            href="gallery.html"
+            @click="mobileMenuOpen = false"
+            class="text-white hover:text-potenza-gold block font-medium"
+            >Gallery</a
+          >
+          <a
+            href="contact.html"
             @click="mobileMenuOpen = false"
             class="text-potenza-gold font-bold block"
             >Contact Us</a
@@ -242,7 +278,7 @@
         <!-- Logo -->
         <div class="flex justify-center mb-8">
           <img
-            src="./potenza-remove-background.com.png"
+            src="./assets/potenza-logo-hero.png"
             alt="Potenza Lodge Logo"
             class="h-64 md:h-80 w-auto opacity-90 mix-blend-screen drop-shadow-2xl"
           />
@@ -501,79 +537,35 @@
       </div>
     </section>
 
-    <!-- Upcoming Events Section -->
-    <section id="events" class="py-20 bg-white border-t border-gray-100">
+    <!-- Community Calendar -->
+    <section id="events" class="py-16 bg-white border-t border-gray-100">
       <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
-          <div>
-            <div class="flex items-center gap-3 mb-3">
-              <span class="h-px w-10 bg-potenza-gold"></span>
-              <span class="text-potenza-red text-sm font-bold uppercase tracking-[0.15em]">Community</span>
-            </div>
-            <h2 class="font-serif text-4xl lg:text-5xl font-bold text-potenza-green">Upcoming Events</h2>
+        <div class="max-w-3xl mx-auto text-center">
+          <div class="flex items-center justify-center gap-3 mb-3">
+            <span class="h-px w-10 bg-potenza-gold"></span>
+            <span class="text-potenza-red text-sm font-bold uppercase tracking-[0.15em]">Community</span>
+            <span class="h-px w-10 bg-potenza-gold"></span>
           </div>
-          <a href="#contact" class="text-potenza-green font-medium inline-flex items-center gap-2 group text-sm">
-            View full calendar
-            <span class="group-hover:translate-x-0.5 transition">→</span>
-          </a>
+          <h2 class="font-serif text-4xl lg:text-5xl font-bold text-potenza-green">Community Calendar</h2>
+          <p class="text-gray-600 mt-5 leading-relaxed">
+            Event dates change throughout the year. For current lodge events and this year's Feast of
+            St. Rocco details, check Facebook or contact the lodge directly.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-3 mt-7">
+            <a
+              href="https://www.facebook.com/Potenza-Lodge-513945338642768/"
+              target="_blank"
+              rel="noopener"
+              class="px-5 py-3 bg-potenza-green text-white font-semibold rounded hover:bg-potenza-green/90"
+              >Facebook Updates</a
+            >
+            <a
+              href="contact.html"
+              class="px-5 py-3 border-2 border-potenza-green text-potenza-green font-semibold rounded hover:bg-potenza-green hover:text-white"
+              >Contact the Lodge</a
+            >
+          </div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" x-data="{
-          events: [
-            {
-              date: 'Aug 15–17',
-              year: '2025',
-              title: 'Feast of St. Rocco',
-              desc: 'Denver’s most authentic Italian celebration. Procession, Mass, sausage sandwiches, live music & bazaar.',
-              location: 'Potenza Lodge & North Denver streets',
-              cta: 'Learn more',
-              href: '#st-rocco'
-            },
-            {
-              date: 'Sep 20',
-              year: '2025',
-              title: 'Members Meeting & Dinner',
-              desc: 'Monthly lodge meeting followed by a family-style Italian dinner. All members welcome.',
-              location: 'Potenza Lodge Hall',
-              cta: null,
-              href: null
-            },
-            {
-              date: 'Oct 11',
-              year: '2025',
-              title: 'Fall Harvest Social',
-              desc: 'An evening of wine, live music, and community. Open to members and their guests.',
-              location: 'Potenza Lodge Hall',
-              cta: null,
-              href: null
-            }
-          ]
-        }">
-          <template x-for="event in events" :key="event.title">
-            <div class="group bg-potenza-cream border border-gray-100 rounded-2xl p-7 flex flex-col hover:shadow-lg hover:border-potenza-gold/30 transition-all">
-              <div class="flex items-baseline gap-3 mb-4">
-                <span class="font-serif text-3xl font-bold text-potenza-green" x-text="event.date"></span>
-                <span class="text-xs font-bold uppercase tracking-widest text-potenza-gold" x-text="event.year"></span>
-              </div>
-
-              <h3 class="font-serif text-2xl text-potenza-charcoal mb-3 group-hover:text-potenza-green transition-colors" x-text="event.title"></h3>
-              <p class="text-gray-600 text-sm leading-relaxed flex-1" x-text="event.desc"></p>
-
-              <div class="mt-5 pt-4 border-t border-gray-200 flex items-center justify-between text-sm">
-                <div class="text-gray-500">
-                  <span x-text="event.location"></span>
-                </div>
-                <template x-if="event.href">
-                  <a :href="event.href" class="font-semibold text-potenza-red hover:text-potenza-green transition-colors" x-text="event.cta"></a>
-                </template>
-              </div>
-            </div>
-          </template>
-        </div>
-
-        <p class="text-center text-xs text-gray-500 mt-8 max-w-md mx-auto">
-          Events are subject to change. For the most current information, call the lodge or ask a member.
-        </p>
       </div>
     </section>
 
@@ -1049,11 +1041,17 @@
                 ></path>
               </svg>
             </a>
+            <a
+              href="documents/lodgeinfo.pdf"
+              class="inline-flex mt-4 items-center gap-2 text-potenza-green font-bold hover:text-potenza-red transition-colors"
+            >
+              <span>Download Rental Brochure</span>
+            </a>
           </div>
         </div>
 
         <!-- Hall Rental Inquiry Form -->
-        <div class="mt-16 max-w-3xl mx-auto" x-data="{ submitted: false }">
+        <div class="mt-16 max-w-3xl mx-auto" x-data="{ submitted: false, submitting: false, error: '' }">
           <div class="text-center mb-8">
             <div class="inline-flex items-center gap-2 text-potenza-green text-sm font-bold uppercase tracking-[0.15em]">
               <span class="h-px w-8 bg-potenza-gold"></span>
@@ -1067,19 +1065,25 @@
           <form
             x-show="!submitted"
             @submit.prevent="
-              submitted = true;
               const form = $event.target;
-              setTimeout(() => form.submit(), 50);
+              submitting = true;
+              error = '';
+              submitFormBoldForm(form)
+                .then(() => {
+                  form.reset();
+                  submitted = true;
+                })
+                .catch(() => {
+                  error = 'We could not send your inquiry. Please try again or call 303-477-1722.';
+                })
+                .finally(() => {
+                  submitting = false;
+                });
             "
-            action="https://formsubmit.co/c3ef521ddbea92bcdd796f2734e0a71a"
+            action="https://formbold.com/s/9mgV4"
             method="POST"
             class="bg-potenza-cream border border-gray-200 rounded-2xl p-8 md:p-10 shadow-sm"
           >
-            <input type="hidden" name="_subject" value="Potenza Lodge — Hall Rental Inquiry" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="https://potenzalodgedenver.com/#hall-rental" />
-            <input type="hidden" name="_captcha" value="false" />
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1.5" for="rental_name">Full Name *</label>
@@ -1113,7 +1117,7 @@
 
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1.5" for="event_date">Preferred Date(s)</label>
-                <input id="event_date" name="Preferred Date(s)" type="text" placeholder="e.g. October 18, 2025" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold focus:border-potenza-gold outline-none bg-white" />
+                <input id="event_date" name="Preferred Date(s)" type="text" placeholder="e.g. October 18" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold focus:border-potenza-gold outline-none bg-white" />
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1.5" for="event_time">Time of Day</label>
@@ -1128,13 +1132,16 @@
 
             <button
               type="submit"
-              class="mt-6 w-full md:w-auto px-10 py-3.5 bg-potenza-green hover:bg-potenza-green/90 text-white font-bold rounded-lg transition-colors shadow-md flex items-center justify-center gap-2"
+              :disabled="submitting"
+              class="mt-6 w-full md:w-auto px-10 py-3.5 bg-potenza-green hover:bg-potenza-green/90 text-white font-bold rounded-lg transition-colors shadow-md flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-wait"
             >
-              Send Inquiry
+              <span x-text="submitting ? 'Sending...' : 'Send Inquiry'"></span>
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7V3" />
               </svg>
             </button>
+
+            <p x-show="error" x-text="error" x-cloak class="text-sm text-potenza-red mt-4"></p>
 
             <p class="text-xs text-gray-500 mt-4">
               We typically respond within 48 hours. You can also reach us directly at <a href="tel:3034771722" class="underline">303-477-1722</a>.
@@ -1197,9 +1204,10 @@
                 class="inline-flex justify-center px-4 py-2 border border-potenza-gold/60 text-potenza-gold text-xs font-bold uppercase tracking-widest rounded hover:bg-potenza-gold hover:text-potenza-green transition-colors"
                 >Officers</a
               >
-              <span
-                class="inline-flex justify-center items-center gap-1 text-potenza-gold text-xs font-bold uppercase tracking-widest py-2"
-                >Coming Soon</span
+              <a
+                href="membership-application.html?group=mens"
+                class="inline-flex justify-center items-center gap-1 text-potenza-gold text-xs font-bold uppercase tracking-widest py-2 hover:text-white"
+                >Apply Online</a
               >
             </div>
           </div>
@@ -1216,9 +1224,10 @@
                 class="inline-flex justify-center px-4 py-2 border border-potenza-gold/60 text-potenza-gold text-xs font-bold uppercase tracking-widest rounded hover:bg-potenza-gold hover:text-potenza-red transition-colors"
                 >Officers</a
               >
-              <span
-                class="inline-flex justify-center items-center gap-1 text-potenza-gold text-xs font-bold uppercase tracking-widest py-2"
-                >Coming Soon</span
+              <a
+                href="membership-application.html?group=ladies"
+                class="inline-flex justify-center items-center gap-1 text-potenza-gold text-xs font-bold uppercase tracking-widest py-2 hover:text-white"
+                >Apply Online</a
               >
             </div>
           </div>
@@ -1231,17 +1240,19 @@
               Auxiliary.
             </p>
             <div class="flex flex-col gap-3 mt-5">
-              <span
-                class="inline-flex justify-center items-center gap-1 text-potenza-gold text-xs font-bold uppercase tracking-widest py-2"
-                >Coming Soon</span
+              <a
+                href="membership-application.html?group=social"
+                class="inline-flex justify-center items-center gap-1 text-potenza-gold text-xs font-bold uppercase tracking-widest py-2 hover:text-white"
+                >Apply Online</a
               >
             </div>
           </div>
         </div>
         <div class="mt-12 text-center">
-          <span
-            class="inline-flex items-center px-8 py-3 bg-white/70 text-potenza-green font-bold rounded shadow cursor-not-allowed"
-            >Membership Applications Coming Soon</span
+          <a
+            href="membership-application.html"
+            class="inline-flex items-center px-8 py-3 bg-white text-potenza-green font-bold rounded shadow hover:bg-potenza-gold transition-colors"
+            >Start an Application</a
           >
         </div>
       </div>
@@ -1258,9 +1269,9 @@
           <div>
             <div class="flex items-center gap-4 mb-6">
               <img
-                src="./potenza.png"
+                src="./assets/potenza-logo-footer.png"
                 alt="Potenza Lodge Logo"
-                class="h-16 w-16 object-contain mix-blend-multiply"
+                class="h-16 w-16 object-contain"
               />
               <h3 class="font-serif text-2xl font-bold text-white">
                 Potenza Lodge
@@ -1358,8 +1369,25 @@
                 >
               </li>
               <li>
-                <span class="text-gray-400"
-                  >Membership Application (Coming Soon)</span
+                <a
+                  href="membership-application.html"
+                  class="hover:text-potenza-gold transition-colors"
+                  >Membership Application</a
+                >
+              </li>
+              <li>
+                <a href="members.html" class="hover:text-potenza-gold transition-colors"
+                  >Member Resources</a
+                >
+              </li>
+              <li>
+                <a href="gallery.html" class="hover:text-potenza-gold transition-colors"
+                  >Photo Archive</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" class="hover:text-potenza-gold transition-colors"
+                  >Contact</a
                 >
               </li>
             </ul>
@@ -1378,11 +1406,11 @@
               <div class="text-xs uppercase tracking-widest text-white/50 mb-3 font-medium">Stay Connected</div>
               <div class="flex gap-3">
                 <a
-                  href="https://www.facebook.com/search/top?q=potenza%20lodge%20denver"
+                  href="https://www.facebook.com/Potenza-Lodge-513945338642768/"
                   target="_blank"
                   rel="noopener"
                   class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-potenza-gold hover:text-potenza-green text-sm rounded-lg transition-colors"
-                  title="Search for Potenza Lodge on Facebook"
+                  title="Potenza Lodge on Facebook"
                 >
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>

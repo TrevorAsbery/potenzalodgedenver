@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member Resources | Potenza Lodge</title>
+    <meta
+      name="description"
+      content="Potenza Lodge membership applications, memorials, veterans honor roll, and community records."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "potenza-green": "#1a472a",
+              "potenza-red": "#8a1c1c",
+              "potenza-gold": "#d4af37",
+              "potenza-cream": "#f9f5f0",
+              "potenza-charcoal": "#2d2d2d",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-potenza-cream text-potenza-charcoal font-sans antialiased">
+    <header class="bg-potenza-green text-white border-b-4 border-potenza-gold">
+      <div class="container mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+        <a href="index.html" class="font-serif text-xl font-bold hover:text-potenza-gold transition-colors">
+          Potenza Lodge
+        </a>
+        <nav class="hidden md:flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold uppercase tracking-wide">
+          <a href="index.html#about" class="hover:text-potenza-gold">Our Story</a>
+          <a href="index.html#hall-rental" class="hover:text-potenza-gold">Hall Rental</a>
+          <a href="membership-application.html" class="hover:text-potenza-gold">Membership</a>
+          <a href="gallery.html" class="hover:text-potenza-gold">Gallery</a>
+          <a href="contact.html" class="hover:text-potenza-gold">Contact</a>
+        </nav>
+        <details class="relative md:hidden">
+          <summary
+            class="list-none cursor-pointer rounded border border-white/30 p-2 hover:bg-white/10 [&::-webkit-details-marker]:hidden"
+            aria-label="Menu"
+            title="Menu"
+          >
+            <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </summary>
+          <nav class="absolute right-0 top-full z-10 mt-3 grid w-52 gap-3 rounded bg-potenza-charcoal p-4 text-xs font-semibold uppercase tracking-wide shadow-xl">
+            <a href="index.html#about" class="hover:text-potenza-gold">Our Story</a>
+            <a href="index.html#hall-rental" class="hover:text-potenza-gold">Hall Rental</a>
+            <a href="membership-application.html" class="hover:text-potenza-gold">Membership</a>
+            <a href="gallery.html" class="hover:text-potenza-gold">Gallery</a>
+            <a href="contact.html" class="hover:text-potenza-gold">Contact</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+
+    <main>
+      <section class="bg-potenza-charcoal text-white py-16">
+        <div class="container mx-auto px-6 max-w-5xl">
+          <p class="text-potenza-gold text-xs font-bold uppercase tracking-widest mb-3">Potenza Lodge</p>
+          <h1 class="font-serif text-4xl md:text-5xl font-bold">Member Resources</h1>
+          <p class="text-white/75 mt-4 max-w-2xl">
+            Applications, lodge records, and preserved community history.
+          </p>
+        </div>
+      </section>
+
+      <section class="py-16">
+        <div class="container mx-auto px-6 max-w-5xl space-y-14">
+          <div>
+            <h2 class="font-serif text-3xl font-bold text-potenza-green mb-6">Membership Applications</h2>
+            <div class="grid md:grid-cols-3 gap-5">
+              <a href="documents/Application2015.pdf" class="bg-white border border-gray-200 p-6 rounded-lg hover:border-potenza-gold hover:shadow-md transition">
+                <span class="text-xs text-potenza-red font-bold uppercase tracking-widest">PDF</span>
+                <h3 class="font-serif text-xl font-bold mt-2">Men's Lodge</h3>
+                <p class="text-sm text-gray-600 mt-2">Printable society membership application.</p>
+              </a>
+              <a href="documents/ApplicationAux2021.pdf" class="bg-white border border-gray-200 p-6 rounded-lg hover:border-potenza-gold hover:shadow-md transition">
+                <span class="text-xs text-potenza-red font-bold uppercase tracking-widest">PDF</span>
+                <h3 class="font-serif text-xl font-bold mt-2">Ladies Auxiliary</h3>
+                <p class="text-sm text-gray-600 mt-2">Printable Ladies Auxiliary application.</p>
+              </a>
+              <a href="documents/ApplicationSocial2015.pdf" class="bg-white border border-gray-200 p-6 rounded-lg hover:border-potenza-gold hover:shadow-md transition">
+                <span class="text-xs text-potenza-red font-bold uppercase tracking-widest">PDF</span>
+                <h3 class="font-serif text-xl font-bold mt-2">Social Membership</h3>
+                <p class="text-sm text-gray-600 mt-2">Printable social membership application.</p>
+              </a>
+            </div>
+            <a
+              href="membership-application.html"
+              class="inline-flex mt-6 px-5 py-3 bg-potenza-green text-white font-semibold rounded hover:bg-potenza-green/90"
+              >Apply online</a
+            >
+          </div>
+
+          <div>
+            <h2 class="font-serif text-3xl font-bold text-potenza-green mb-6">Community Records</h2>
+            <div class="grid md:grid-cols-3 gap-5">
+              <a href="documents/memorial-men-2017.pdf" class="bg-white border border-gray-200 p-6 rounded-lg hover:border-potenza-gold hover:shadow-md transition">
+                <h3 class="font-serif text-xl font-bold">Men's Memorial</h3>
+                <p class="text-sm text-gray-600 mt-2">Memorial roster preserved from the legacy site.</p>
+              </a>
+              <a href="documents/memorial-ladies.pdf" class="bg-white border border-gray-200 p-6 rounded-lg hover:border-potenza-gold hover:shadow-md transition">
+                <h3 class="font-serif text-xl font-bold">Ladies Memorial</h3>
+                <p class="text-sm text-gray-600 mt-2">Ladies Auxiliary memorial roster.</p>
+              </a>
+              <a href="documents/veterans-honor-roll.pdf" class="bg-white border border-gray-200 p-6 rounded-lg hover:border-potenza-gold hover:shadow-md transition">
+                <h3 class="font-serif text-xl font-bold">Veterans' Honor Roll</h3>
+                <p class="text-sm text-gray-600 mt-2">Honoring members who served.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-potenza-charcoal text-white py-8">
+      <div class="container mx-auto px-6 text-center text-xs text-gray-400">
+        &copy; <span id="resources-year"></span> Societa Nativi di Potenza Basilicata
+      </div>
+    </footer>
+    <script>
+      document.getElementById("resources-year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

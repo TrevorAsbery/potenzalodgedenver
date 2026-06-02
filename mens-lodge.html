@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://potenzalodgedenver.com/mens-lodge.html" />
     <meta property="og:title" content="Men's Lodge Officers | Potenza Lodge" />
     <meta property="og:description" content="Dedicated to benevolence, unity, and brotherhood since 1899." />
-    <meta property="og:image" content="https://potenzalodgedenver.com/potenza-remove-background.com.png" />
+    <meta property="og:image" content="https://potenzalodgedenver.com/assets/potenza-logo-hero.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Google Fonts -->
@@ -104,6 +104,9 @@
         <button
           @click="mobileMenuOpen = !mobileMenuOpen"
           class="md:hidden text-white focus:outline-none"
+          aria-label="Menu"
+          :aria-expanded="mobileMenuOpen"
+          aria-controls="mens-mobile-menu"
         >
           <svg
             class="w-8 h-8"
@@ -130,6 +133,7 @@
       </div>
 
       <div
+        id="mens-mobile-menu"
         x-show="mobileMenuOpen"
         x-transition.opacity
         class="md:hidden absolute top-full left-0 w-full bg-potenza-green shadow-xl border-t border-potenza-green/50"
@@ -271,9 +275,10 @@
 
         <!-- CTA -->
         <div class="text-center">
-          <span
-            class="inline-flex items-center px-8 py-3 bg-white/20 text-potenza-cream font-bold rounded shadow cursor-not-allowed border border-white/30"
-            >Membership Applications Coming Soon</span
+          <a
+            href="membership-application.html?group=mens"
+            class="inline-flex items-center px-8 py-3 bg-potenza-gold text-potenza-green font-bold rounded shadow hover:bg-white transition-colors"
+            >Apply for Men's Lodge</a
           >
         </div>
       </div>
