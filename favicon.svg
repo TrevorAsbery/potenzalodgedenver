@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="#1a472a"/>
+  <!-- Inner gold ring -->
+  <circle cx="50" cy="50" r="42" fill="none" stroke="#d4af37" stroke-width="3"/>
+  <!-- Stylized P -->
+  <path d="M38 28 L38 72 M38 28 Q62 28 62 42 Q62 56 38 56" fill="none" stroke="#d4af37" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Small accent dot -->
+  <circle cx="50" cy="72" r="3.5" fill="#d4af37"/>
+</svg>

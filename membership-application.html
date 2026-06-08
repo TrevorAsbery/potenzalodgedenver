@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Membership Application - Potenza Lodge</title>
-    <meta
-      name="description"
-      content="Apply for Men's Lodge, Ladies Auxiliary, or Social membership at Societa Nativi di Potenza Basilicata, Denver."
-    />
+    <title>Membership Application | Potenza Lodge — Denver</title>
+    <meta name="description" content="Apply to join the Men's Lodge, Ladies Auxiliary, or Social membership at Colorado's oldest Italian organization, founded 1899." />
+    <link rel="canonical" href="https://potenzalodgedenver.com/membership-application.html" />
+    <meta property="og:title" content="Become a Member | Potenza Lodge" />
+    <meta property="og:description" content="Join Denver's oldest Italian heritage organization. Men's Lodge, Ladies Auxiliary, and Social membership available." />
+    <meta property="og:image" content="https://potenzalodgedenver.com/assets/potenza-logo-hero.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,6 +18,7 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="formbold.js"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -147,6 +150,8 @@
           @click="mobileMenuOpen = !mobileMenuOpen"
           class="md:hidden text-white focus:outline-none"
           aria-label="Menu"
+          :aria-expanded="mobileMenuOpen"
+          aria-controls="membership-mobile-menu"
         >
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -167,6 +172,7 @@
         </button>
       </div>
       <div
+        id="membership-mobile-menu"
         x-show="mobileMenuOpen"
         x-transition.opacity
         class="md:hidden absolute top-full left-0 w-full bg-potenza-charcoal border-t border-white/10"
@@ -233,16 +239,10 @@
 
         <form
           id="membership-application-form"
-          action="https://formsubmit.co/el/vukope"
+          action="https://formbold.com/s/35OzL"
           method="POST"
           class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden"
         >
-          <!-- FormSubmit: keep _captcha false on ALL hosts. If we omit it on production, reCAPTCHA turns on; it often fails to complete on external sites (works on formsubmit.co tester). See documentation _captcha. -->
-          <input type="hidden" name="_subject" value="Potenza Lodge — New membership application" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" id="formsubmit-next" value="" />
-          <input type="hidden" name="_captcha" value="false" />
-
           <!-- Always in the form tree (not inside <template>) so the POST body always includes membership -->
           <input
             type="hidden"
@@ -551,7 +551,12 @@
             </h2>
             <p class="text-sm text-gray-600">
               By submitting, you agree that the lodge may contact you about membership. This form is
-              delivered by email—you may be asked to confirm a captcha on first use.
+              delivered by email and saved in the lodge's inquiry dashboard.
+            </p>
+            <p class="text-xs text-gray-500">
+              Your application includes personal information such as your contact details and date
+              of birth. Submit only if you are comfortable sharing this information with Potenza
+              Lodge through its FormBold inquiry service.
             </p>
             <label class="flex items-start gap-3 cursor-pointer">
               <input
@@ -565,6 +570,8 @@
                 >I confirm the information I provided is accurate to the best of my knowledge. *</span
               >
             </label>
+
+            <p id="membership-submit-error" class="hidden text-sm text-potenza-red"></p>
 
             <div class="flex justify-between pt-4">
               <button
@@ -607,37 +614,29 @@
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        var host = window.location.hostname;
-        var isLocal =
-          host === "localhost" || host === "127.0.0.1" || host === "" || host === "[::1]";
-
-        var nextEl = document.getElementById("formsubmit-next");
-        if (nextEl) {
-          if (isLocal) {
-            /* No localhost URL in _next (FormSubmit rejects or falls back to origin /). Use their thank-you page. */
-            nextEl.value = "https://formsubmit.co/thanks.html";
-          } else {
-            nextEl.value = new URL("membership-thanks.html", window.location.href).href;
-          }
-        }
-
         var form = document.getElementById("membership-application-form");
         if (form) {
-          /**
-           * Use a normal form POST (no fetch). FormSubmit responds with redirects; browsers do not
-           * expose those to fetch() from another origin without CORS, so fetch fails after redirect.
-           */
-          form.addEventListener("submit", function () {
-            var action = form.getAttribute("action");
-            console.log("[FormSubmit] submitting (native POST, full navigation) →", action);
-            var names = [];
-            new FormData(form).forEach(function (_, k) {
-              if (names.indexOf(k) === -1) names.push(k);
-            });
-            console.log("[FormSubmit] included field names:", names.join(", "));
-            console.log(
-              "[FormSubmit] To inspect status/redirect: DevTools → Network → enable «Preserve log» → submit → click the request to formsubmit.co"
-            );
+          form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var submitButton = form.querySelector('button[type="submit"]');
+            var errorMessage = document.getElementById("membership-submit-error");
+
+            submitButton.disabled = true;
+            submitButton.textContent = "Sending...";
+            errorMessage.classList.add("hidden");
+
+            submitFormBoldForm(form)
+              .then(function () {
+                window.location.href = new URL("membership-thanks.html", window.location.href).href;
+              })
+              .catch(function () {
+                errorMessage.textContent =
+                  "We could not send your application. Please try again or call 303-477-1722.";
+                errorMessage.classList.remove("hidden");
+                submitButton.disabled = false;
+                submitButton.textContent = "Submit application";
+              });
           });
         }
       });

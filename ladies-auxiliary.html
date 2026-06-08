@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ladies Auxiliary Officers - Potenza Lodge</title>
-    <meta
-      name="description"
-      content="Meet the officers of the Ladies Auxiliary at Societa Nativi di Potenza Basilicata. A vital part of our community focusing on charity and culture."
-    />
+    <title>Ladies Auxiliary Officers | Potenza Lodge — Denver</title>
+    <meta name="description" content="Meet the 2025 officers of the Ladies Auxiliary at Societa Nativi di Potenza Basilicata, Colorado's oldest Italian organization." />
+    <link rel="canonical" href="https://potenzalodgedenver.com/ladies-auxiliary.html" />
+    <meta property="og:title" content="Ladies Auxiliary Officers | Potenza Lodge" />
+    <meta property="og:description" content="A vital part of our community focusing on charity and culture since 1899." />
+    <meta property="og:image" content="https://potenzalodgedenver.com/assets/potenza-logo-hero.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -102,6 +104,9 @@
         <button
           @click="mobileMenuOpen = !mobileMenuOpen"
           class="md:hidden text-white focus:outline-none"
+          aria-label="Menu"
+          :aria-expanded="mobileMenuOpen"
+          aria-controls="ladies-mobile-menu"
         >
           <svg
             class="w-8 h-8"
@@ -128,6 +133,7 @@
       </div>
 
       <div
+        id="ladies-mobile-menu"
         x-show="mobileMenuOpen"
         x-transition.opacity
         class="md:hidden absolute top-full left-0 w-full bg-potenza-red shadow-xl border-t border-potenza-red/50"
@@ -258,9 +264,10 @@
 
         <!-- CTA -->
         <div class="text-center">
-          <span
-            class="inline-flex items-center px-8 py-3 bg-white/20 text-potenza-cream font-bold rounded shadow cursor-not-allowed border border-white/30"
-            >Membership Applications Coming Soon</span
+          <a
+            href="membership-application.html?group=ladies"
+            class="inline-flex items-center px-8 py-3 bg-potenza-gold text-potenza-charcoal font-bold rounded shadow hover:bg-white transition-colors"
+            >Apply for Ladies Auxiliary</a
           >
         </div>
       </div>
