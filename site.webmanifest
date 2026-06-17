@@ -1,0 +1,16 @@
+{
+  "name": "Potenza Lodge",
+  "short_name": "Potenza Lodge",
+  "description": "Societa Nativi di Potenza Basilicata — Preserving Italian Heritage in Denver Since 1899",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9f5f0",
+  "theme_color": "#1a472a",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
