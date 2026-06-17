@@ -1,115 +1,207 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | Potenza Lodge</title>
-    <meta name="description" content="Contact Potenza Lodge in Denver, Colorado." />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="formbold.js"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "potenza-green": "#1a472a",
-              "potenza-red": "#8a1c1c",
-              "potenza-gold": "#d4af37",
-              "potenza-cream": "#f9f5f0",
-              "potenza-charcoal": "#2d2d2d",
-            },
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              serif: ["Playfair Display", "serif"],
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      [x-cloak] {
-        display: none !important;
-      }
-    </style>
-  </head>
-  <body class="bg-potenza-cream text-potenza-charcoal font-sans antialiased">
-    <header class="bg-potenza-green text-white border-b-4 border-potenza-gold">
-      <div class="container mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
-        <a href="index.html" class="font-serif text-xl font-bold hover:text-potenza-gold transition-colors">
-          Potenza Lodge
-        </a>
-        <nav class="hidden md:flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold uppercase tracking-wide">
-          <a href="index.html#about" class="hover:text-potenza-gold">Our Story</a>
-          <a href="index.html#hall-rental" class="hover:text-potenza-gold">Hall Rental</a>
-          <a href="membership-application.html" class="hover:text-potenza-gold">Membership</a>
-          <a href="members.html" class="hover:text-potenza-gold">Resources</a>
-          <a href="gallery.html" class="hover:text-potenza-gold">Gallery</a>
-        </nav>
-        <details class="relative md:hidden">
-          <summary
-            class="list-none cursor-pointer rounded border border-white/30 p-2 hover:bg-white/10 [&::-webkit-details-marker]:hidden"
-            aria-label="Menu"
-            title="Menu"
-          >
-            <svg class="h-6 w-6" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </summary>
-          <nav class="absolute right-0 top-full z-10 mt-3 grid w-52 gap-3 rounded bg-potenza-charcoal p-4 text-xs font-semibold uppercase tracking-wide shadow-xl">
-            <a href="index.html#about" class="hover:text-potenza-gold">Our Story</a>
-            <a href="index.html#hall-rental" class="hover:text-potenza-gold">Hall Rental</a>
-            <a href="membership-application.html" class="hover:text-potenza-gold">Membership</a>
-            <a href="members.html" class="hover:text-potenza-gold">Resources</a>
-            <a href="gallery.html" class="hover:text-potenza-gold">Gallery</a>
-          </nav>
-        </details>
-      </div>
-    </header>
-
-    <main>
-      <section class="bg-potenza-charcoal text-white py-16">
-        <div class="container mx-auto px-6 max-w-5xl">
-          <p class="text-potenza-gold text-xs font-bold uppercase tracking-widest mb-3">Denver, Colorado</p>
-          <h1 class="font-serif text-4xl md:text-5xl font-bold">Contact Potenza Lodge</h1>
-          <p class="text-white/75 mt-4 max-w-2xl">Send a question or reach the lodge directly.</p>
-        </div>
-      </section>
-
-      <section class="py-16">
-        <div class="container mx-auto px-6 max-w-5xl grid lg:grid-cols-[0.8fr_1.2fr] gap-10">
-          <aside class="space-y-6">
-            <div>
-              <h2 class="font-serif text-2xl font-bold text-potenza-green">Potenza Lodge</h2>
-              <p class="text-gray-600 mt-3">
-                1900 W. 38th Avenue<br />
-                Denver, CO 80211
-              </p>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contact | Potenza Lodge</title>
+        <meta
+            name="description"
+            content="Contact Potenza Lodge in Denver, Colorado."
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
+        <script defer src="formbold.js"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            "potenza-green": "#1a472a",
+                            "potenza-red": "#8a1c1c",
+                            "potenza-gold": "#d4af37",
+                            "potenza-cream": "#f9f5f0",
+                            "potenza-charcoal": "#2d2d2d",
+                        },
+                        fontFamily: {
+                            sans: ["Inter", "sans-serif"],
+                            serif: ["Playfair Display", "serif"],
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            [x-cloak] {
+                display: none !important;
+            }
+        </style>
+    </head>
+    <body class="bg-potenza-cream text-potenza-charcoal font-sans antialiased">
+        <header
+            class="bg-potenza-green text-white border-b-4 border-potenza-gold"
+        >
+            <div
+                class="container mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4"
+            >
+                <a
+                    href="index.html"
+                    class="font-serif text-xl font-bold hover:text-potenza-gold transition-colors"
+                >
+                    Potenza Lodge
+                </a>
+                <nav
+                    class="hidden md:flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold uppercase tracking-wide"
+                >
+                    <a href="index.html#about" class="hover:text-potenza-gold"
+                        >Our Story</a
+                    >
+                    <a
+                        href="index.html#hall-rental"
+                        class="hover:text-potenza-gold"
+                        >Hall Rental</a
+                    >
+                    <a
+                        href="membership-application.html"
+                        class="hover:text-potenza-gold"
+                        >Membership</a
+                    >
+                    <a href="members.html" class="hover:text-potenza-gold"
+                        >Resources</a
+                    >
+                    <a href="gallery.html" class="hover:text-potenza-gold"
+                        >Gallery</a
+                    >
+                </nav>
+                <details class="relative md:hidden">
+                    <summary
+                        class="list-none cursor-pointer rounded border border-white/30 p-2 hover:bg-white/10 [&::-webkit-details-marker]:hidden"
+                        aria-label="Menu"
+                        title="Menu"
+                    >
+                        <svg
+                            class="h-6 w-6"
+                            aria-hidden="true"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"
+                            ></path>
+                        </svg>
+                    </summary>
+                    <nav
+                        class="absolute right-0 top-full z-10 mt-3 grid w-52 gap-3 rounded bg-potenza-charcoal p-4 text-xs font-semibold uppercase tracking-wide shadow-xl"
+                    >
+                        <a
+                            href="index.html#about"
+                            class="hover:text-potenza-gold"
+                            >Our Story</a
+                        >
+                        <a
+                            href="index.html#hall-rental"
+                            class="hover:text-potenza-gold"
+                            >Hall Rental</a
+                        >
+                        <a
+                            href="membership-application.html"
+                            class="hover:text-potenza-gold"
+                            >Membership</a
+                        >
+                        <a href="members.html" class="hover:text-potenza-gold"
+                            >Resources</a
+                        >
+                        <a href="gallery.html" class="hover:text-potenza-gold"
+                            >Gallery</a
+                        >
+                    </nav>
+                </details>
             </div>
-            <div class="space-y-2 text-sm">
-              <a class="block text-potenza-green font-semibold hover:text-potenza-red" href="tel:3034771722">303-477-1722</a>
-              <a class="block text-potenza-green font-semibold hover:text-potenza-red" href="mailto:lmlokken@msn.com">lmlokken@msn.com</a>
-            </div>
-            <div class="bg-white border border-gray-200 rounded-lg p-5">
-              <h3 class="font-serif text-xl font-bold">Planning an event?</h3>
-              <p class="text-sm text-gray-600 mt-2">Review hall capacity and facility details before contacting us.</p>
-              <a href="documents/lodgeinfo.pdf" class="inline-flex mt-4 text-sm font-bold text-potenza-red hover:text-potenza-green"
-                >Download rental brochure</a
-              >
-            </div>
-          </aside>
+        </header>
 
-          <div x-data="{ submitted: false, submitting: false, error: '' }">
-            <form
-              x-show="!submitted"
-              @submit.prevent="
+        <main>
+            <section class="bg-potenza-charcoal text-white py-16">
+                <div class="container mx-auto px-6 max-w-5xl">
+                    <p
+                        class="text-potenza-gold text-xs font-bold uppercase tracking-widest mb-3"
+                    >
+                        Denver, Colorado
+                    </p>
+                    <h1 class="font-serif text-4xl md:text-5xl font-bold">
+                        Contact Potenza Lodge
+                    </h1>
+                    <p class="text-white/75 mt-4 max-w-2xl">
+                        The best way to get in contact is to call us directly.
+                        But you may also submit a question via form below.
+                    </p>
+                </div>
+            </section>
+
+            <section class="py-16">
+                <div
+                    class="container mx-auto px-6 max-w-5xl grid lg:grid-cols-[0.8fr_1.2fr] gap-10"
+                >
+                    <aside class="space-y-6">
+                        <div>
+                            <h2
+                                class="font-serif text-2xl font-bold text-potenza-green"
+                            >
+                                Potenza Lodge
+                            </h2>
+                            <p class="text-gray-600 mt-3">
+                                1900 W. 38th Avenue<br />
+                                Denver, CO 80211
+                            </p>
+                        </div>
+                        <div class="space-y-2 text-sm">
+                            <a
+                                class="block text-potenza-green font-semibold hover:text-potenza-red"
+                                href="tel:3034771722"
+                                >303-477-1722</a
+                            >
+                            <a
+                                class="block text-potenza-green font-semibold hover:text-potenza-red"
+                                href="mailto:lmlokken@msn.com"
+                                >lmlokken@msn.com</a
+                            >
+                        </div>
+                        <div
+                            class="bg-white border border-gray-200 rounded-lg p-5"
+                        >
+                            <h3 class="font-serif text-xl font-bold">
+                                Planning an event?
+                            </h3>
+                            <p class="text-sm text-gray-600 mt-2">
+                                Review hall capacity and facility details before
+                                contacting us.
+                            </p>
+                            <a
+                                href="documents/lodgeinfo.pdf"
+                                class="inline-flex mt-4 text-sm font-bold text-potenza-red hover:text-potenza-green"
+                                >Download rental brochure</a
+                            >
+                        </div>
+                    </aside>
+
+                    <div
+                        x-data="{ submitted: false, submitting: false, error: '' }"
+                    >
+                        <form
+                            x-show="!submitted"
+                            @submit.prevent="
                 submitting = true;
                 error = '';
                 submitFormBoldForm($event.target)
@@ -124,51 +216,124 @@
                     submitting = false;
                   });
               "
-              action="https://formbold.com/s/9mgV4"
-              method="POST"
-              class="bg-white border border-gray-200 rounded-lg p-7 shadow-sm"
-            >
-              <input type="hidden" name="Inquiry Type" value="General Lodge Contact" />
-              <h2 class="font-serif text-2xl font-bold text-potenza-green mb-5">Send a message</h2>
-              <div class="space-y-4">
-                <div>
-                  <label for="contact_name" class="block text-sm font-medium mb-1">Full name *</label>
-                  <input id="contact_name" name="Full Name" type="text" required class="w-full rounded border border-gray-300 px-4 py-2.5" />
+                            action="https://formbold.com/s/9mgV4"
+                            method="POST"
+                            class="bg-white border border-gray-200 rounded-lg p-7 shadow-sm"
+                        >
+                            <input
+                                type="hidden"
+                                name="Inquiry Type"
+                                value="General Lodge Contact"
+                            />
+                            <h2
+                                class="font-serif text-2xl font-bold text-potenza-green mb-5"
+                            >
+                                Send a message
+                            </h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <label
+                                        for="contact_name"
+                                        class="block text-sm font-medium mb-1"
+                                        >Full name *</label
+                                    >
+                                    <input
+                                        id="contact_name"
+                                        name="Full Name"
+                                        type="text"
+                                        required
+                                        class="w-full rounded border border-gray-300 px-4 py-2.5"
+                                    />
+                                </div>
+                                <div>
+                                    <label
+                                        for="contact_email"
+                                        class="block text-sm font-medium mb-1"
+                                        >Email *</label
+                                    >
+                                    <input
+                                        id="contact_email"
+                                        name="Email"
+                                        type="email"
+                                        required
+                                        class="w-full rounded border border-gray-300 px-4 py-2.5"
+                                    />
+                                </div>
+                                <div>
+                                    <label
+                                        for="contact_phone"
+                                        class="block text-sm font-medium mb-1"
+                                        >Phone</label
+                                    >
+                                    <input
+                                        id="contact_phone"
+                                        name="Phone"
+                                        type="tel"
+                                        class="w-full rounded border border-gray-300 px-4 py-2.5"
+                                    />
+                                </div>
+                                <div>
+                                    <label
+                                        for="contact_message"
+                                        class="block text-sm font-medium mb-1"
+                                        >Question or comment *</label
+                                    >
+                                    <textarea
+                                        id="contact_message"
+                                        name="Message"
+                                        rows="5"
+                                        required
+                                        class="w-full rounded border border-gray-300 px-4 py-2.5 resize-y"
+                                    ></textarea>
+                                </div>
+                            </div>
+                            <button
+                                type="submit"
+                                :disabled="submitting"
+                                class="mt-5 px-6 py-3 bg-potenza-green text-white font-semibold rounded disabled:opacity-60"
+                            >
+                                <span
+                                    x-text="submitting ? 'Sending...' : 'Send message'"
+                                ></span>
+                            </button>
+                            <p
+                                x-show="error"
+                                x-text="error"
+                                x-cloak
+                                class="text-sm text-potenza-red mt-4"
+                            ></p>
+                        </form>
+                        <div
+                            x-show="submitted"
+                            x-cloak
+                            class="bg-white border border-potenza-green/30 rounded-lg p-8 text-center"
+                        >
+                            <h2
+                                class="font-serif text-2xl font-bold text-potenza-green"
+                            >
+                                Thank you
+                            </h2>
+                            <p class="text-gray-600 mt-3">
+                                Your message was sent. A lodge member will
+                                follow up shortly.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                  <label for="contact_email" class="block text-sm font-medium mb-1">Email *</label>
-                  <input id="contact_email" name="Email" type="email" required class="w-full rounded border border-gray-300 px-4 py-2.5" />
-                </div>
-                <div>
-                  <label for="contact_phone" class="block text-sm font-medium mb-1">Phone</label>
-                  <input id="contact_phone" name="Phone" type="tel" class="w-full rounded border border-gray-300 px-4 py-2.5" />
-                </div>
-                <div>
-                  <label for="contact_message" class="block text-sm font-medium mb-1">Question or comment *</label>
-                  <textarea id="contact_message" name="Message" rows="5" required class="w-full rounded border border-gray-300 px-4 py-2.5 resize-y"></textarea>
-                </div>
-              </div>
-              <button type="submit" :disabled="submitting" class="mt-5 px-6 py-3 bg-potenza-green text-white font-semibold rounded disabled:opacity-60">
-                <span x-text="submitting ? 'Sending...' : 'Send message'"></span>
-              </button>
-              <p x-show="error" x-text="error" x-cloak class="text-sm text-potenza-red mt-4"></p>
-            </form>
-            <div x-show="submitted" x-cloak class="bg-white border border-potenza-green/30 rounded-lg p-8 text-center">
-              <h2 class="font-serif text-2xl font-bold text-potenza-green">Thank you</h2>
-              <p class="text-gray-600 mt-3">Your message was sent. A lodge member will follow up shortly.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+            </section>
+        </main>
 
-    <footer class="bg-potenza-charcoal text-white py-8">
-      <div class="container mx-auto px-6 text-center text-xs text-gray-400">
-        &copy; <span id="contact-year"></span> Societa Nativi di Potenza Basilicata
-      </div>
-    </footer>
-    <script>
-      document.getElementById("contact-year").textContent = new Date().getFullYear();
-    </script>
-  </body>
+        <footer class="bg-potenza-charcoal text-white py-8">
+            <div
+                class="container mx-auto px-6 text-center text-xs text-gray-400"
+            >
+                &copy; <span id="contact-year"></span> Societa Nativi di Potenza
+                Basilicata
+            </div>
+        </footer>
+        <script>
+            document.getElementById("contact-year").textContent =
+                new Date().getFullYear();
+        </script>
+    </body>
 </html>
