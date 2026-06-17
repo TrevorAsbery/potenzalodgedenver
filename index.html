@@ -8,6 +8,16 @@
       name="description"
       content="Preserving Italian Heritage in Denver Since 1899. Join us for the Feast of St. Rocco, community events, and hall rentals."
     />
+    <link rel="canonical" href="https://potenzalodgedenver.com/" />
+    <meta property="og:site_name" content="Potenza Lodge Denver" />
+    <meta property="og:title" content="Potenza Lodge - Societa Nativi di Potenza Basilicata" />
+    <meta
+      property="og:description"
+      content="Preserving Italian heritage in Denver since 1899. Find St. Rocco details, events, hall rentals, membership information, and contact details."
+    />
+    <meta property="og:url" content="https://potenzalodgedenver.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://potenzalodgedenver.com/st-rocco-2026-flyer.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -113,6 +123,11 @@
             >Feast of St. Rocco</a
           >
           <a
+            href="#events"
+            class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
+            >Events</a
+          >
+          <a
             href="#hall-rental"
             class="text-white hover:text-potenza-gold text-sm font-medium tracking-wide transition-colors uppercase"
             >Hall Rental</a
@@ -176,6 +191,12 @@
             @click="mobileMenuOpen = false"
             class="text-white hover:text-potenza-gold block font-medium"
             >Feast of St. Rocco</a
+          >
+          <a
+            href="#events"
+            @click="mobileMenuOpen = false"
+            class="text-white hover:text-potenza-gold block font-medium"
+            >Events</a
           >
           <a
             href="#hall-rental"
@@ -512,6 +533,61 @@
         </p>
 
         <div
+          id="st-rocco-details"
+          class="max-w-5xl mx-auto mb-12 grid grid-cols-1 lg:grid-cols-[1.4fr_0.8fr] gap-6 text-left"
+        >
+          <div class="bg-white text-potenza-charcoal rounded-lg p-6 md:p-8 shadow-2xl">
+            <span
+              class="inline-block text-potenza-red font-bold uppercase tracking-widest text-xs mb-3"
+              >This Year's Details</span
+            >
+            <h3 class="font-serif text-3xl md:text-4xl font-bold text-potenza-green mb-4">
+              132nd Annual St. Rocco's Italian Festival
+            </h3>
+            <div class="grid sm:grid-cols-2 gap-4 text-sm text-gray-700 mb-5">
+              <div class="border border-gray-200 rounded-lg p-4 bg-potenza-cream">
+                <p class="font-bold text-potenza-red uppercase tracking-widest text-xs mb-2">
+                  When
+                </p>
+                <p>Friday & Saturday, August 14 & 15, 5 PM - 10 PM</p>
+                <p>Sunday, August 16, 4 PM - 8 PM</p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4 bg-potenza-cream">
+                <p class="font-bold text-potenza-red uppercase tracking-widest text-xs mb-2">
+                  Where
+                </p>
+                <p>Potenza Lodge</p>
+                <p>1900 W. 38th Avenue, Denver</p>
+              </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-5">
+              Enjoy Italian food, bingo, raffles, kids' games, booths, drinks, live entertainment,
+              and DJ Van Jeffries. Bidding for the statue begins after the 11 AM Mass at Our Lady of
+              Mount Carmel Church on Sunday, August 16, with the procession to follow.
+            </p>
+            <a
+              href="tel:3034771722"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-potenza-red text-white font-bold rounded hover:bg-potenza-green transition-colors"
+            >
+              <span>Call 303-477-1722</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </a>
+          </div>
+          <div
+            class="bg-potenza-cream/95 text-potenza-charcoal rounded-lg p-3 border-4 border-potenza-gold shadow-2xl"
+          >
+            <img
+              src="./st-rocco-2026-flyer.png"
+              alt="2026 St. Rocco's Italian Festival flyer"
+              class="w-full h-full max-h-[620px] object-contain rounded"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div
           class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12 text-left"
         >
           <div
@@ -814,11 +890,88 @@
         </div>
 
         <a
-          href="#contact"
+          href="#st-rocco-details"
           class="inline-block mt-12 px-10 py-4 bg-potenza-gold text-potenza-charcoal font-bold rounded hover:bg-white transition-colors shadow-lg"
         >
           Get This Year's Details
         </a>
+      </div>
+    </section>
+
+    <!-- Calendar / Events Section -->
+    <section id="events" class="py-24 bg-potenza-cream">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center mb-14">
+          <div class="flex items-center justify-center gap-4 mb-6">
+            <span class="h-px w-12 bg-potenza-gold"></span>
+            <span
+              class="text-potenza-red font-bold uppercase tracking-widest text-sm"
+              >Calendar</span
+            >
+            <span class="h-px w-12 bg-potenza-gold"></span>
+          </div>
+          <h2 class="font-serif text-4xl lg:text-5xl font-bold text-potenza-green mb-6">
+            Events at Potenza Lodge
+          </h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Event dates are added as they are confirmed. For the fastest answer about current
+            events, St. Rocco details, or hall availability, please call the lodge.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div class="bg-white border border-gray-100 rounded-lg p-6 shadow-sm">
+            <p class="text-potenza-red text-xs font-bold uppercase tracking-widest mb-3">
+              Annual August Tradition
+            </p>
+            <h3 class="font-serif text-2xl font-bold text-potenza-green mb-3">
+              Feast of St. Rocco
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-5">
+              Friday and Saturday, August 14 and 15 from 5 PM to 10 PM, and Sunday, August 16 from
+              4 PM to 8 PM at Potenza Lodge.
+            </p>
+            <a
+              href="#st-rocco-details"
+              class="text-potenza-red font-bold text-sm hover:text-potenza-green transition-colors"
+              >View St. Rocco details</a
+            >
+          </div>
+          <div class="bg-white border border-gray-100 rounded-lg p-6 shadow-sm">
+            <p class="text-potenza-red text-xs font-bold uppercase tracking-widest mb-3">
+              Lodge Calendar
+            </p>
+            <h3 class="font-serif text-2xl font-bold text-potenza-green mb-3">
+              Community Events
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-5">
+              Public event listings are being updated. Check back here for dinners, fundraisers,
+              cultural events, and community gatherings.
+            </p>
+            <a
+              href="tel:3034771722"
+              class="text-potenza-red font-bold text-sm hover:text-potenza-green transition-colors"
+              >Call for upcoming events</a
+            >
+          </div>
+          <div class="bg-white border border-gray-100 rounded-lg p-6 shadow-sm">
+            <p class="text-potenza-red text-xs font-bold uppercase tracking-widest mb-3">
+              Private Events
+            </p>
+            <h3 class="font-serif text-2xl font-bold text-potenza-green mb-3">
+              Hall Availability
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-5">
+              Planning a reception, party, memorial, or family gathering? Call to check available
+              dates and rental details.
+            </p>
+            <a
+              href="#hall-rental"
+              class="text-potenza-red font-bold text-sm hover:text-potenza-green transition-colors"
+              >See hall details</a
+            >
+          </div>
+        </div>
       </div>
     </section>
 
@@ -950,6 +1103,67 @@
       </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-potenza-charcoal text-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center mb-14">
+          <div class="flex items-center justify-center gap-4 mb-6">
+            <span class="h-px w-12 bg-potenza-gold"></span>
+            <span
+              class="text-potenza-gold font-bold uppercase tracking-widest text-sm"
+              >Gallery</span
+            >
+            <span class="h-px w-12 bg-potenza-gold"></span>
+          </div>
+          <h2 class="font-serif text-4xl lg:text-5xl font-bold mb-6">
+            Lodge & Event Photos
+          </h2>
+          <p class="text-lg text-white/70 leading-relaxed">
+            A look inside Potenza Lodge, our hall setup, and community gathering spaces.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+          <img
+            src="./lodge-flowers.jpg"
+            alt="Potenza Lodge event table with flowers"
+            class="w-full h-72 object-cover rounded-lg shadow-lg"
+            loading="lazy"
+          />
+          <img
+            src="./lodge-table.jpg"
+            alt="Potenza Lodge decorated event table"
+            class="w-full h-72 object-cover rounded-lg shadow-lg"
+            loading="lazy"
+          />
+          <img
+            src="./lodge-table2-vertical.jpg"
+            alt="Potenza Lodge event table setup"
+            class="w-full h-72 object-cover rounded-lg shadow-lg"
+            loading="lazy"
+          />
+          <img
+            src="./lodge-bar.jpg"
+            alt="Potenza Lodge bar area"
+            class="w-full h-72 object-cover rounded-lg shadow-lg"
+            loading="lazy"
+          />
+          <img
+            src="./lodge-flowers-vertical.jpg"
+            alt="Potenza Lodge floral event arrangement"
+            class="w-full h-72 object-cover rounded-lg shadow-lg"
+            loading="lazy"
+          />
+          <img
+            src="./potenza-green.jpg"
+            alt="Potenza Lodge exterior and sign"
+            class="w-full h-72 object-cover rounded-lg shadow-lg"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
     <!-- Membership CTA -->
     <section
       id="membership"
@@ -978,7 +1192,7 @@
           Become a part of history. We welcome men and women who share our
           values and wish to preserve the Italian-American culture in Denver.
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <div class="bg-white/5 border border-white/20 p-6 rounded-lg opacity-90 flex flex-col">
             <h3 class="text-potenza-gold font-bold text-xl mb-2">
               Men's Lodge
@@ -1017,27 +1231,54 @@
               >
             </div>
           </div>
-          <div class="bg-white/5 border border-white/20 p-6 rounded-lg opacity-90 flex flex-col">
-            <h3 class="text-potenza-gold font-bold text-xl mb-2">
-              Social membership
-            </h3>
-            <p class="text-sm text-potenza-cream/90 flex-1">
-              Social membership uses its own application, separate from Men’s Lodge and Ladies
-              Auxiliary.
-            </p>
-            <div class="flex flex-col gap-3 mt-5">
-              <span
-                class="inline-flex justify-center items-center gap-1 text-potenza-gold text-xs font-bold uppercase tracking-widest py-2"
-                >Coming Soon</span
-              >
-            </div>
-          </div>
         </div>
         <div class="mt-12 text-center">
           <span
             class="inline-flex items-center px-8 py-3 bg-white/70 text-potenza-green font-bold rounded shadow cursor-not-allowed"
             >Membership Applications Coming Soon</span
           >
+        </div>
+      </div>
+    </section>
+
+    <!-- Memorials Section -->
+    <section id="memorials" class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 items-center">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <span class="h-px w-12 bg-potenza-gold"></span>
+              <span
+                class="text-potenza-red font-bold uppercase tracking-widest text-sm"
+                >Memorials</span
+              >
+            </div>
+            <h2 class="font-serif text-4xl lg:text-5xl font-bold text-potenza-green mb-6">
+              In Memoriam
+            </h2>
+            <p class="text-gray-700 leading-relaxed">
+              Memorial updates are being collected and will be posted here. To add a name, correct a
+              listing, or ask about a memorial event, please call the lodge.
+            </p>
+          </div>
+          <div class="border border-gray-200 rounded-lg p-8 bg-potenza-cream">
+            <h3 class="font-serif text-2xl font-bold text-potenza-charcoal mb-4">
+              Memorial Updates
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6">
+              The updated memorial list is pending final names and details. Call us directly so the
+              information can be confirmed before it is published.
+            </p>
+            <a
+              href="tel:3034771722"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-potenza-green text-white font-bold rounded hover:bg-potenza-red transition-colors"
+            >
+              <span>Call 303-477-1722</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1106,6 +1347,9 @@
                   ></span
                 >
               </p>
+              <p class="text-sm text-potenza-gold font-semibold">
+                Best way to contact us: call the lodge.
+              </p>
               <p class="flex items-center gap-3">
                 <svg
                   class="w-6 h-6 text-potenza-gold shrink-0"
@@ -1147,9 +1391,30 @@
               </li>
               <li>
                 <a
+                  href="#events"
+                  class="hover:text-potenza-gold transition-colors"
+                  >Events Calendar</a
+                >
+              </li>
+              <li>
+                <a
                   href="#hall-rental"
                   class="hover:text-potenza-gold transition-colors"
                   >Hall Details & Rental</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#gallery"
+                  class="hover:text-potenza-gold transition-colors"
+                  >Gallery</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#memorials"
+                  class="hover:text-potenza-gold transition-colors"
+                  >Memorials</a
                 >
               </li>
               <li>
@@ -1169,15 +1434,27 @@
               To preserve and promote Italian culture and heritage in Denver
               through benevolence, unity, and brotherhood.
             </p>
-            <div class="flex gap-4">
-              <!-- Social Icons Placeholder -->
+            <p class="text-gray-400 text-sm mb-3">
+              Follow us on Instagram:
               <a
-                href="#"
+                href="https://www.instagram.com/potenzalodge/"
+                target="_blank"
+                rel="noopener"
+                class="text-potenza-gold hover:text-white transition-colors"
+                >@potenzalodge</a
+              >
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="https://www.instagram.com/potenzalodge/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Potenza Lodge on Instagram, @potenzalodge"
                 class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-potenza-gold hover:text-white transition-colors"
               >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                    d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.76 3.76 0 0 0 4 7.75v8.5A3.76 3.76 0 0 0 7.75 20h8.5A3.76 3.76 0 0 0 20 16.25v-8.5A3.76 3.76 0 0 0 16.25 4h-8.5Zm8.75 2.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"
                   />
                 </svg>
               </a>

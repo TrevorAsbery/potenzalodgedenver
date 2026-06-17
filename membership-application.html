@@ -6,7 +6,7 @@
     <title>Membership Application - Potenza Lodge</title>
     <meta
       name="description"
-      content="Apply for Men's Lodge, Ladies Auxiliary, or Social membership at Societa Nativi di Potenza Basilicata, Denver."
+      content="Apply for Men's Lodge or Ladies Auxiliary membership at Societa Nativi di Potenza Basilicata, Denver."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
       scrolled: false,
       init() {
         const p = new URLSearchParams(window.location.search).get('group');
-        if (p === 'mens' || p === 'ladies' || p === 'social') {
+        if (p === 'mens' || p === 'ladies') {
           this.group = p;
           this.step = 2;
         }
@@ -65,13 +65,11 @@
       headerBg() {
         if (this.group === 'ladies') return this.scrolled ? 'bg-potenza-red/95 backdrop-blur-md shadow-lg' : 'bg-potenza-red';
         if (this.group === 'mens') return this.scrolled ? 'bg-potenza-green/95 backdrop-blur-md shadow-lg' : 'bg-potenza-green';
-        if (this.group === 'social') return this.scrolled ? 'bg-neutral-800/95 backdrop-blur-md shadow-lg' : 'bg-neutral-800';
         return this.scrolled ? 'bg-potenza-charcoal/95 backdrop-blur-md shadow-lg' : 'bg-potenza-charcoal';
       },
       accentBorder() {
         if (this.group === 'ladies') return 'border-potenza-red';
         if (this.group === 'mens') return 'border-potenza-green';
-        if (this.group === 'social') return 'border-potenza-gold';
         return 'border-potenza-gold';
       },
       accentText() {
@@ -82,19 +80,16 @@
       accentBtn() {
         if (this.group === 'ladies') return 'bg-potenza-red hover:bg-potenza-red/90 text-white';
         if (this.group === 'mens') return 'bg-potenza-green hover:bg-potenza-green/90 text-white';
-        if (this.group === 'social') return 'bg-potenza-gold hover:bg-potenza-gold/90 text-potenza-charcoal';
         return 'bg-potenza-charcoal hover:bg-potenza-charcoal/90 text-white';
       },
       pdfHref() {
         if (this.group === 'mens') return 'documents/Application2015.pdf';
         if (this.group === 'ladies') return 'documents/ApplicationAux2021.pdf';
-        if (this.group === 'social') return 'documents/ApplicationSocial2015.pdf';
         return '#';
       },
       pdfLabel() {
         if (this.group === 'mens') return 'Men\u0027s Lodge application (PDF)';
         if (this.group === 'ladies') return 'Ladies Auxiliary application (PDF)';
-        if (this.group === 'social') return 'Social membership application (PDF)';
         return '';
       },
       selectGroup(g) {
@@ -136,11 +131,6 @@
             class="text-white/80 hover:text-potenza-gold text-xs font-medium uppercase"
             >Ladies Auxiliary</a
           >
-          <a
-            href="membership-application.html?group=social"
-            class="text-white/80 hover:text-potenza-gold text-xs font-medium uppercase"
-            >Social</a
-          >
         </nav>
         <button
           type="button"
@@ -174,7 +164,6 @@
         <div class="flex flex-col px-6 py-4 gap-3">
           <a href="mens-lodge.html" class="text-white text-sm">Men's Lodge</a>
           <a href="ladies-auxiliary.html" class="text-white text-sm">Ladies Auxiliary</a>
-          <a href="membership-application.html?group=social" class="text-white text-sm">Social membership</a>
         </div>
       </div>
     </header>
@@ -188,7 +177,7 @@
           <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto mb-4">
             Apply online below, or download the printable application for the membership you want.
             <strong class="font-semibold text-potenza-charcoal"
-              >Men’s Lodge, Ladies Auxiliary, and Social membership each use a different form</strong
+              >Men’s Lodge and Ladies Auxiliary each use a different form</strong
             >—use the PDF that matches your application.
           </p>
           <ul
@@ -210,14 +199,6 @@
               >
               — printable application (PDF)
             </li>
-            <li>
-              <a
-                href="documents/ApplicationSocial2015.pdf"
-                class="font-semibold text-potenza-charcoal underline underline-offset-2 hover:text-potenza-green"
-                >Social membership</a
-              >
-              — printable application (PDF)
-            </li>
           </ul>
         </div>
 
@@ -226,7 +207,7 @@
           <template x-for="s in [2,3,4]" :key="s">
             <div
               class="h-1.5 rounded-full transition-all duration-300"
-              :class="step >= s ? (group === 'ladies' ? 'bg-potenza-red w-10' : group === 'mens' ? 'bg-potenza-green w-10' : group === 'social' ? 'bg-potenza-gold w-10' : 'bg-potenza-gold w-10') : 'bg-gray-200 w-6'"
+              :class="step >= s ? (group === 'ladies' ? 'bg-potenza-red w-10' : 'bg-potenza-green w-10') : 'bg-gray-200 w-6'"
             ></div>
           </template>
         </div>
@@ -247,7 +228,7 @@
           <input
             type="hidden"
             name="Membership type"
-            :value="group === 'mens' ? 'Men\u0027s Lodge' : group === 'ladies' ? 'Ladies Auxiliary' : group === 'social' ? 'Social membership' : ''"
+            :value="group === 'mens' ? 'Men\u0027s Lodge' : group === 'ladies' ? 'Ladies Auxiliary' : ''"
           />
 
           <!-- Step 1: choose group -->
@@ -255,7 +236,7 @@
             <h2 class="font-serif text-xl font-bold text-potenza-charcoal mb-6">
               Which membership are you interested in?
             </h2>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="grid sm:grid-cols-2 gap-4">
               <button
                 type="button"
                 @click="selectGroup('mens')"
@@ -275,16 +256,6 @@
                   >Ladies Auxiliary</span
                 >
                 <span class="text-sm text-gray-600">Charity, culture, and community.</span>
-              </button>
-              <button
-                type="button"
-                @click="selectGroup('social')"
-                class="p-6 rounded-lg border-2 border-potenza-gold/50 bg-potenza-cream/50 hover:border-potenza-gold hover:shadow-md text-left transition-all sm:col-span-2 lg:col-span-1"
-              >
-                <span class="font-serif text-lg font-bold text-potenza-charcoal block mb-1"
-                  >Social membership</span
-                >
-                <span class="text-sm text-gray-600">A separate application from Men’s Lodge and Ladies Auxiliary.</span>
               </button>
             </div>
           </div>
@@ -591,9 +562,6 @@
           >,
           <a href="documents/ApplicationAux2021.pdf" class="text-potenza-red font-medium underline"
             >Ladies Auxiliary</a
-          >, or
-          <a href="documents/ApplicationSocial2015.pdf" class="text-potenza-charcoal font-medium underline"
-            >Social</a
           >. Bring or mail it to the lodge. Questions:
           <a href="tel:3034771722" class="underline">303-477-1722</a>.
         </p>
