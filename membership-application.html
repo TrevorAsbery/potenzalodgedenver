@@ -1,59 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Membership Application | Potenza Lodge — Denver</title>
-    <meta name="description" content="Apply to join the Men's Lodge or Ladies Auxiliary at Colorado's oldest Italian organization, founded 1899." />
-    <link rel="canonical" href="https://potenzalodgedenver.com/membership-application.html" />
-    <meta property="og:title" content="Become a Member | Potenza Lodge" />
-    <meta property="og:description" content="Join Denver's oldest Italian heritage organization. Men's Lodge and Ladies Auxiliary membership applications are available." />
-    <meta property="og:image" content="https://potenzalodgedenver.com/assets/potenza-logo-hero.png" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="formbold.js"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "potenza-green": "#1a472a",
-              "potenza-red": "#8a1c1c",
-              "potenza-gold": "#d4af37",
-              "potenza-cream": "#f9f5f0",
-              "potenza-charcoal": "#2d2d2d",
-            },
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              serif: ["Playfair Display", "serif"],
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #f9f5f0;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #1a472a;
-        border-radius: 5px;
-      }
-    </style>
-  </head>
-  <body
-    class="bg-potenza-cream text-potenza-charcoal font-sans antialiased selection:bg-potenza-red selection:text-white"
-    x-data="{
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Membership Application | Potenza Lodge — Denver</title>
+        <meta
+            name="description"
+            content="Apply to join the Men's Lodge or Ladies Auxiliary at Colorado's oldest Italian organization, founded 1899."
+        />
+        <link
+            rel="canonical"
+            href="https://potenzalodgedenver.com/membership-application.html"
+        />
+        <meta property="og:title" content="Become a Member | Potenza Lodge" />
+        <meta
+            property="og:description"
+            content="Join Denver's oldest Italian heritage organization. Men's Lodge and Ladies Auxiliary membership applications are available."
+        />
+        <meta
+            property="og:image"
+            content="https://potenzalodgedenver.com/assets/potenza-logo-hero.png"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
+        <script defer src="formbold.js"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            "potenza-green": "#1a472a",
+                            "potenza-red": "#8a1c1c",
+                            "potenza-gold": "#d4af37",
+                            "potenza-cream": "#f9f5f0",
+                            "potenza-charcoal": "#2d2d2d",
+                        },
+                        fontFamily: {
+                            sans: ["Inter", "sans-serif"],
+                            serif: ["Playfair Display", "serif"],
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #f9f5f0;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #1a472a;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body
+        class="bg-potenza-cream text-potenza-charcoal font-sans antialiased selection:bg-potenza-red selection:text-white"
+        x-data="{
       step: 1,
       group: '',
       mobileMenuOpen: false,
@@ -111,503 +126,604 @@
       },
       back() { if (this.step > 1) this.step--; },
     }"
-    @scroll.window="scrolled = (window.pageYOffset > 20)"
-  >
-    <header
-      :class="(scrolled ? 'py-2 shadow-lg' : 'py-4') + ' ' + headerBg()"
-      class="fixed w-full top-0 z-50 transition-all duration-300"
+        @scroll.window="scrolled = (window.pageYOffset > 20)"
     >
-      <div class="container mx-auto px-6 flex justify-between items-center">
-        <a
-          href="index.html#membership"
-          class="text-white/90 hover:text-potenza-gold text-sm font-medium uppercase tracking-wide"
-          >← Membership</a
+        <header
+            :class="(scrolled ? 'py-2 shadow-lg' : 'py-4') + ' ' + headerBg()"
+            class="fixed w-full top-0 z-50 transition-all duration-300"
         >
-        <nav class="hidden md:flex items-center gap-6">
-          <a
-            href="mens-lodge.html"
-            class="text-white/80 hover:text-potenza-gold text-xs font-medium uppercase"
-            >Men's Lodge</a
-          >
-          <a
-            href="ladies-auxiliary.html"
-            class="text-white/80 hover:text-potenza-gold text-xs font-medium uppercase"
-            >Ladies Auxiliary</a
-          >
-        </nav>
-        <button
-          type="button"
-          @click="mobileMenuOpen = !mobileMenuOpen"
-          class="md:hidden text-white focus:outline-none"
-          aria-label="Menu"
-          :aria-expanded="mobileMenuOpen"
-          aria-controls="membership-mobile-menu"
-        >
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              x-show="!mobileMenuOpen"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              x-show="mobileMenuOpen"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-      </div>
-      <div
-        id="membership-mobile-menu"
-        x-show="mobileMenuOpen"
-        x-transition.opacity
-        class="md:hidden absolute top-full left-0 w-full bg-potenza-charcoal border-t border-white/10"
-      >
-        <div class="flex flex-col px-6 py-4 gap-3">
-          <a href="mens-lodge.html" class="text-white text-sm">Men's Lodge</a>
-          <a href="ladies-auxiliary.html" class="text-white text-sm">Ladies Auxiliary</a>
-        </div>
-      </div>
-    </header>
-
-    <main class="pt-28 pb-16 px-6">
-      <div class="container mx-auto max-w-2xl">
-        <div class="text-center mb-10">
-          <h1 class="font-serif text-3xl md:text-4xl font-bold text-potenza-green mb-2">
-            Membership application
-          </h1>
-          <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto mb-4">
-            Apply online below, or download the printable application for the membership you want.
-            <strong class="font-semibold text-potenza-charcoal"
-              >Men’s Lodge and Ladies Auxiliary each use a different form</strong
-            >—use the PDF that matches your application.
-          </p>
-          <ul
-            class="text-left text-sm text-gray-600 max-w-xl mx-auto space-y-2.5 bg-white/60 rounded-lg border border-gray-200/80 px-5 py-4"
-          >
-            <li>
-              <a
-                href="documents/Application2015.pdf"
-                class="font-semibold text-potenza-green underline decoration-potenza-green/40 hover:decoration-potenza-green"
-                >Men’s Lodge</a
-              >
-              — printable application (PDF)
-            </li>
-            <li>
-              <a
-                href="documents/ApplicationAux2021.pdf"
-                class="font-semibold text-potenza-red underline decoration-potenza-red/40 hover:decoration-potenza-red"
-                >Ladies Auxiliary</a
-              >
-              — printable application (PDF)
-            </li>
-          </ul>
-        </div>
-
-        <!-- Progress -->
-        <div class="flex justify-center gap-2 mb-10" x-show="step > 1">
-          <template x-for="s in [2,3,4]" :key="s">
             <div
-              class="h-1.5 rounded-full transition-all duration-300"
-              :class="step >= s ? (group === 'ladies' ? 'bg-potenza-red w-10' : 'bg-potenza-green w-10') : 'bg-gray-200 w-6'"
-            ></div>
-          </template>
-        </div>
-
-        <form
-          id="membership-application-form"
-          action="https://formbold.com/s/35OzL"
-          method="POST"
-          class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden"
-        >
-          <!-- Always in the form tree (not inside <template>) so the POST body always includes membership -->
-          <input
-            type="hidden"
-            name="Membership type"
-            :value="group === 'mens' ? 'Men\u0027s Lodge' : group === 'ladies' ? 'Ladies Auxiliary' : ''"
-          />
-
-          <!-- Step 1: choose group -->
-          <div x-show="step === 1" class="p-8 md:p-10">
-            <h2 class="font-serif text-xl font-bold text-potenza-charcoal mb-6">
-              Which membership are you interested in?
-            </h2>
-            <div class="grid sm:grid-cols-2 gap-4">
-              <button
-                type="button"
-                @click="selectGroup('mens')"
-                class="p-6 rounded-lg border-2 border-potenza-green/30 bg-potenza-cream/50 hover:border-potenza-green hover:shadow-md text-left transition-all"
-              >
-                <span class="font-serif text-lg font-bold text-potenza-green block mb-1"
-                  >Men's Lodge</span
-                >
-                <span class="text-sm text-gray-600">Brotherhood, benevolence, and unity.</span>
-              </button>
-              <button
-                type="button"
-                @click="selectGroup('ladies')"
-                class="p-6 rounded-lg border-2 border-potenza-red/30 bg-potenza-cream/50 hover:border-potenza-red hover:shadow-md text-left transition-all"
-              >
-                <span class="font-serif text-lg font-bold text-potenza-red block mb-1"
-                  >Ladies Auxiliary</span
-                >
-                <span class="text-sm text-gray-600">Charity, culture, and community.</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Step 2: applicant -->
-          <div x-show="step === 2" class="p-8 md:p-10 space-y-5" x-cloak>
-            <h2
-              class="font-serif text-xl font-bold border-b pb-3 mb-2"
-              :class="accentBorder()"
+                class="container mx-auto px-6 flex justify-between items-center"
             >
-              About you
-            </h2>
-
-            <p
-              class="text-sm text-gray-700 bg-potenza-cream border border-potenza-gold/35 rounded-lg px-4 py-3"
-              x-show="group"
+                <a
+                    href="index.html#membership"
+                    class="text-white/90 hover:text-potenza-gold text-sm font-medium uppercase tracking-wide"
+                    >← Membership</a
+                >
+                <nav class="hidden md:flex items-center gap-6">
+                    <a
+                        href="mens-lodge.html"
+                        class="text-white/80 hover:text-potenza-gold text-xs font-medium uppercase"
+                        >Men's Lodge</a
+                    >
+                    <a
+                        href="ladies-auxiliary.html"
+                        class="text-white/80 hover:text-potenza-gold text-xs font-medium uppercase"
+                        >Ladies Auxiliary</a
+                    >
+                </nav>
+                <button
+                    type="button"
+                    @click="mobileMenuOpen = !mobileMenuOpen"
+                    class="md:hidden text-white focus:outline-none"
+                    aria-label="Menu"
+                    :aria-expanded="mobileMenuOpen"
+                    aria-controls="membership-mobile-menu"
+                >
+                    <svg
+                        class="w-8 h-8"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            x-show="!mobileMenuOpen"
+                            d="M4 6h16M4 12h16M4 18h16"
+                        />
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            x-show="mobileMenuOpen"
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                    </svg>
+                </button>
+            </div>
+            <div
+                id="membership-mobile-menu"
+                x-show="mobileMenuOpen"
+                x-transition.opacity
+                class="md:hidden absolute top-full left-0 w-full bg-potenza-charcoal border-t border-white/10"
             >
-              <span class="font-medium text-potenza-charcoal">Printable form for this membership:</span>
-              <a
-                :href="pdfHref()"
-                class="font-semibold underline underline-offset-2 ml-1"
-                :class="group === 'mens' ? 'text-potenza-green' : group === 'ladies' ? 'text-potenza-red' : 'text-potenza-charcoal'"
-                x-text="pdfLabel()"
-              ></a>
-            </p>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1" for="full_name"
-                >Full legal name *</label
-              >
-              <input
-                id="full_name"
-                name="Full legal name"
-                type="text"
-                :required="step === 2"
-                autocomplete="name"
-                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold focus:border-potenza-gold outline-none"
-              />
+                <div class="flex flex-col px-6 py-4 gap-3">
+                    <a href="mens-lodge.html" class="text-white text-sm"
+                        >Men's Lodge</a
+                    >
+                    <a href="ladies-auxiliary.html" class="text-white text-sm"
+                        >Ladies Auxiliary</a
+                    >
+                </div>
             </div>
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1" for="dob"
-                  >Date of birth *</label
+        </header>
+
+        <main class="pt-28 pb-16 px-6">
+            <div class="container mx-auto max-w-2xl">
+                <div class="text-center mb-10">
+                    <h1
+                        class="font-serif text-3xl md:text-4xl font-bold text-potenza-green mb-2"
+                    >
+                        Membership application
+                    </h1>
+                    <p
+                        class="text-gray-600 text-sm md:text-base max-w-xl mx-auto mb-4"
+                    >
+                        Apply online below, or download the printable
+                        application for the membership you want.
+                        <strong class="font-semibold text-potenza-charcoal"
+                            >Men’s Lodge and Ladies Auxiliary each use a
+                            different form</strong
+                        >—use the PDF that matches your application.
+                    </p>
+                    <ul
+                        class="text-left text-sm text-gray-600 max-w-xl mx-auto space-y-2.5 bg-white/60 rounded-lg border border-gray-200/80 px-5 py-4"
+                    >
+                        <li>
+                            <a
+                                href="documents/Application2015.pdf"
+                                class="font-semibold text-potenza-green underline decoration-potenza-green/40 hover:decoration-potenza-green"
+                                >Men’s Lodge</a
+                            >
+                            — printable application (PDF)
+                        </li>
+                        <li>
+                            <a
+                                href="documents/ApplicationAux2021.pdf"
+                                class="font-semibold text-potenza-red underline decoration-potenza-red/40 hover:decoration-potenza-red"
+                                >Ladies Auxiliary</a
+                            >
+                            — printable application (PDF)
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Progress -->
+                <div class="flex justify-center gap-2 mb-10" x-show="step > 1">
+                    <template x-for="s in [2,3,4]" :key="s">
+                        <div
+                            class="h-1.5 rounded-full transition-all duration-300"
+                            :class="step >= s ? (group === 'ladies' ? 'bg-potenza-red w-10' : 'bg-potenza-green w-10') : 'bg-gray-200 w-6'"
+                        ></div>
+                    </template>
+                </div>
+
+                <form
+                    id="membership-application-form"
+                    action="https://formbold.com/s/3dJaX"
+                    method="POST"
+                    class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden"
                 >
-                <input
-                  id="dob"
-                  name="Date of birth"
-                  type="date"
-                  :required="step === 2"
-                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1" for="phone"
-                  >Phone *</label
+                    <!-- Always in the form tree (not inside <template>) so the POST body always includes membership -->
+                    <input
+                        type="hidden"
+                        name="Membership type"
+                        :value="group === 'mens' ? 'Men\u0027s Lodge' : group === 'ladies' ? 'Ladies Auxiliary' : ''"
+                    />
+
+                    <!-- Step 1: choose group -->
+                    <div x-show="step === 1" class="p-8 md:p-10">
+                        <h2
+                            class="font-serif text-xl font-bold text-potenza-charcoal mb-6"
+                        >
+                            Which membership are you interested in?
+                        </h2>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <button
+                                type="button"
+                                @click="selectGroup('mens')"
+                                class="p-6 rounded-lg border-2 border-potenza-green/30 bg-potenza-cream/50 hover:border-potenza-green hover:shadow-md text-left transition-all"
+                            >
+                                <span
+                                    class="font-serif text-lg font-bold text-potenza-green block mb-1"
+                                    >Men's Lodge</span
+                                >
+                                <span class="text-sm text-gray-600"
+                                    >Brotherhood, benevolence, and unity.</span
+                                >
+                            </button>
+                            <button
+                                type="button"
+                                @click="selectGroup('ladies')"
+                                class="p-6 rounded-lg border-2 border-potenza-red/30 bg-potenza-cream/50 hover:border-potenza-red hover:shadow-md text-left transition-all"
+                            >
+                                <span
+                                    class="font-serif text-lg font-bold text-potenza-red block mb-1"
+                                    >Ladies Auxiliary</span
+                                >
+                                <span class="text-sm text-gray-600"
+                                    >Charity, culture, and community.</span
+                                >
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: applicant -->
+                    <div
+                        x-show="step === 2"
+                        class="p-8 md:p-10 space-y-5"
+                        x-cloak
+                    >
+                        <h2
+                            class="font-serif text-xl font-bold border-b pb-3 mb-2"
+                            :class="accentBorder()"
+                        >
+                            About you
+                        </h2>
+
+                        <p
+                            class="text-sm text-gray-700 bg-potenza-cream border border-potenza-gold/35 rounded-lg px-4 py-3"
+                            x-show="group"
+                        >
+                            <span class="font-medium text-potenza-charcoal"
+                                >Printable form for this membership:</span
+                            >
+                            <a
+                                :href="pdfHref()"
+                                class="font-semibold underline underline-offset-2 ml-1"
+                                :class="group === 'mens' ? 'text-potenza-green' : group === 'ladies' ? 'text-potenza-red' : 'text-potenza-charcoal'"
+                                x-text="pdfLabel()"
+                            ></a>
+                        </p>
+
+                        <div>
+                            <label
+                                class="block text-sm font-medium text-gray-700 mb-1"
+                                for="full_name"
+                                >Full legal name *</label
+                            >
+                            <input
+                                id="full_name"
+                                name="Full legal name"
+                                type="text"
+                                :required="step === 2"
+                                autocomplete="name"
+                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold focus:border-potenza-gold outline-none"
+                            />
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-1"
+                                    for="dob"
+                                    >Date of birth *</label
+                                >
+                                <input
+                                    id="dob"
+                                    name="Date of birth"
+                                    type="date"
+                                    :required="step === 2"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-1"
+                                    for="phone"
+                                    >Phone *</label
+                                >
+                                <input
+                                    id="phone"
+                                    name="Phone"
+                                    type="tel"
+                                    :required="step === 2"
+                                    autocomplete="tel"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-sm font-medium text-gray-700 mb-1"
+                                for="email"
+                                >Email *</label
+                            >
+                            <input
+                                id="email"
+                                name="Email"
+                                type="email"
+                                :required="step === 2"
+                                autocomplete="email"
+                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                class="block text-sm font-medium text-gray-700 mb-1"
+                                for="address"
+                                >Street address *</label
+                            >
+                            <input
+                                id="address"
+                                name="Street address"
+                                type="text"
+                                :required="step === 2"
+                                autocomplete="street-address"
+                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                            />
+                        </div>
+                        <div class="grid sm:grid-cols-3 gap-4">
+                            <div class="sm:col-span-1">
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-1"
+                                    for="city"
+                                    >City *</label
+                                >
+                                <input
+                                    id="city"
+                                    name="City"
+                                    type="text"
+                                    :required="step === 2"
+                                    autocomplete="address-level2"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-1"
+                                    for="state"
+                                    >State *</label
+                                >
+                                <input
+                                    id="state"
+                                    name="State"
+                                    type="text"
+                                    :required="step === 2"
+                                    autocomplete="address-level1"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-1"
+                                    for="zip"
+                                    >ZIP *</label
+                                >
+                                <input
+                                    id="zip"
+                                    name="ZIP"
+                                    type="text"
+                                    :required="step === 2"
+                                    autocomplete="postal-code"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-sm font-medium text-gray-700 mb-1"
+                                for="occupation"
+                                >Occupation / employer</label
+                            >
+                            <input
+                                id="occupation"
+                                name="Occupation or employer"
+                                type="text"
+                                autocomplete="organization-title"
+                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                class="block text-sm font-medium text-gray-700 mb-1"
+                                for="heritage"
+                                >Italian heritage / family town or region (if
+                                applicable)</label
+                            >
+                            <input
+                                id="heritage"
+                                name="Heritage or family origin"
+                                type="text"
+                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                                placeholder="e.g. Potenza, Basilicata"
+                            />
+                        </div>
+
+                        <div class="flex justify-between pt-4">
+                            <button
+                                type="button"
+                                @click="step = 1; group = ''"
+                                class="text-gray-600 hover:text-potenza-charcoal text-sm font-medium"
+                            >
+                                ← Back
+                            </button>
+                            <button
+                                type="button"
+                                @click="next()"
+                                :class="accentBtn()"
+                                class="px-6 py-2.5 rounded-lg font-semibold text-sm"
+                            >
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: emergency + notes -->
+                    <div
+                        x-show="step === 3"
+                        class="p-8 md:p-10 space-y-5"
+                        x-cloak
+                    >
+                        <h2
+                            class="font-serif text-xl font-bold border-b pb-3 mb-2"
+                            :class="accentBorder()"
+                        >
+                            Emergency contact &amp; details
+                        </h2>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-1"
+                                    for="ec_name"
+                                    >Emergency contact name</label
+                                >
+                                <input
+                                    id="ec_name"
+                                    name="Emergency contact name"
+                                    type="text"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-1"
+                                    for="ec_phone"
+                                    >Emergency contact phone</label
+                                >
+                                <input
+                                    id="ec_phone"
+                                    name="Emergency contact phone"
+                                    type="tel"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-sm font-medium text-gray-700 mb-1"
+                                for="sponsor"
+                                >Sponsor or member who referred you (if
+                                any)</label
+                            >
+                            <input
+                                id="sponsor"
+                                name="Sponsor or referral"
+                                type="text"
+                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                class="block text-sm font-medium text-gray-700 mb-1"
+                                for="heard"
+                                >How did you hear about the lodge?</label
+                            >
+                            <input
+                                id="heard"
+                                name="How they heard about us"
+                                type="text"
+                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                class="block text-sm font-medium text-gray-700 mb-1"
+                                for="message"
+                                >Anything else we should know?</label
+                            >
+                            <textarea
+                                id="message"
+                                name="Additional message"
+                                rows="4"
+                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none resize-y"
+                            ></textarea>
+                        </div>
+
+                        <div class="flex justify-between pt-4">
+                            <button
+                                type="button"
+                                @click="back()"
+                                class="text-gray-600 hover:text-potenza-charcoal text-sm font-medium"
+                            >
+                                ← Back
+                            </button>
+                            <button
+                                type="button"
+                                @click="next()"
+                                :class="accentBtn()"
+                                class="px-6 py-2.5 rounded-lg font-semibold text-sm"
+                            >
+                                Review
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: review -->
+                    <div
+                        x-show="step === 4"
+                        class="p-8 md:p-10 space-y-6"
+                        x-cloak
+                    >
+                        <h2
+                            class="font-serif text-xl font-bold border-b pb-3"
+                            :class="accentBorder()"
+                        >
+                            Review &amp; submit
+                        </h2>
+                        <p class="text-sm text-gray-600">
+                            By submitting, you agree that the lodge may contact
+                            you about membership. This form is delivered by
+                            email and saved in the lodge's inquiry dashboard.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            Your application includes personal information such
+                            as your contact details and date of birth. Submit
+                            only if you are comfortable sharing this information
+                            with Potenza Lodge through its FormBold inquiry
+                            service.
+                        </p>
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input
+                                type="checkbox"
+                                name="Applicant confirms information is accurate"
+                                value="Yes — I confirm my information is accurate to the best of my knowledge."
+                                :required="step === 4"
+                                class="mt-1 rounded border-gray-300 text-potenza-green focus:ring-potenza-gold"
+                            />
+                            <span class="text-sm text-gray-700"
+                                >I confirm the information I provided is
+                                accurate to the best of my knowledge. *</span
+                            >
+                        </label>
+
+                        <p
+                            id="membership-submit-error"
+                            class="hidden text-sm text-potenza-red"
+                        ></p>
+
+                        <div class="flex justify-between pt-4">
+                            <button
+                                type="button"
+                                @click="back()"
+                                class="text-gray-600 hover:text-potenza-charcoal text-sm font-medium"
+                            >
+                                ← Back
+                            </button>
+                            <button
+                                type="submit"
+                                :class="accentBtn()"
+                                class="px-8 py-3 rounded-lg font-bold text-sm shadow-md"
+                            >
+                                Submit application
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <p
+                    class="text-center text-xs text-gray-500 mt-8 max-w-lg mx-auto leading-relaxed"
                 >
-                <input
-                  id="phone"
-                  name="Phone"
-                  type="tel"
-                  :required="step === 2"
-                  autocomplete="tel"
-                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                />
-              </div>
+                    Prefer paper? Download the application that matches your
+                    membership:
+                    <a
+                        href="documents/Application2015.pdf"
+                        class="text-potenza-green font-medium underline"
+                        >Men’s Lodge</a
+                    >,
+                    <a
+                        href="documents/ApplicationAux2021.pdf"
+                        class="text-potenza-red font-medium underline"
+                        >Ladies Auxiliary</a
+                    >. Bring or mail it to the lodge. Questions:
+                    <a href="tel:3034771722" class="underline">303-477-1722</a>.
+                </p>
             </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1" for="email"
-                >Email *</label
-              >
-              <input
-                id="email"
-                name="Email"
-                type="email"
-                :required="step === 2"
-                autocomplete="email"
-                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-              />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1" for="address"
-                >Street address *</label
-              >
-              <input
-                id="address"
-                name="Street address"
-                type="text"
-                :required="step === 2"
-                autocomplete="street-address"
-                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-              />
-            </div>
-            <div class="grid sm:grid-cols-3 gap-4">
-              <div class="sm:col-span-1">
-                <label class="block text-sm font-medium text-gray-700 mb-1" for="city">City *</label>
-                <input
-                  id="city"
-                  name="City"
-                  type="text"
-                  :required="step === 2"
-                  autocomplete="address-level2"
-                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1" for="state">State *</label>
-                <input
-                  id="state"
-                  name="State"
-                  type="text"
-                  :required="step === 2"
-                  autocomplete="address-level1"
-                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1" for="zip">ZIP *</label>
-                <input
-                  id="zip"
-                  name="ZIP"
-                  type="text"
-                  :required="step === 2"
-                  autocomplete="postal-code"
-                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                />
-              </div>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1" for="occupation"
-                >Occupation / employer</label
-              >
-              <input
-                id="occupation"
-                name="Occupation or employer"
-                type="text"
-                autocomplete="organization-title"
-                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-              />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1" for="heritage"
-                >Italian heritage / family town or region (if applicable)</label
-              >
-              <input
-                id="heritage"
-                name="Heritage or family origin"
-                type="text"
-                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                placeholder="e.g. Potenza, Basilicata"
-              />
-            </div>
+        </main>
 
-            <div class="flex justify-between pt-4">
-              <button
-                type="button"
-                @click="step = 1; group = ''"
-                class="text-gray-600 hover:text-potenza-charcoal text-sm font-medium"
-              >
-                ← Back
-              </button>
-              <button
-                type="button"
-                @click="next()"
-                :class="accentBtn()"
-                class="px-6 py-2.5 rounded-lg font-semibold text-sm"
-              >
-                Continue
-              </button>
-            </div>
-          </div>
+        <style>
+            [x-cloak] {
+                display: none !important;
+            }
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var form = document.getElementById(
+                    "membership-application-form",
+                );
+                if (form) {
+                    form.addEventListener("submit", function (event) {
+                        event.preventDefault();
 
-          <!-- Step 3: emergency + notes -->
-          <div x-show="step === 3" class="p-8 md:p-10 space-y-5" x-cloak>
-            <h2
-              class="font-serif text-xl font-bold border-b pb-3 mb-2"
-              :class="accentBorder()"
-            >
-              Emergency contact &amp; details
-            </h2>
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1" for="ec_name"
-                  >Emergency contact name</label
-                >
-                <input
-                  id="ec_name"
-                  name="Emergency contact name"
-                  type="text"
-                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1" for="ec_phone"
-                  >Emergency contact phone</label
-                >
-                <input
-                  id="ec_phone"
-                  name="Emergency contact phone"
-                  type="tel"
-                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                />
-              </div>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1" for="sponsor"
-                >Sponsor or member who referred you (if any)</label
-              >
-              <input
-                id="sponsor"
-                name="Sponsor or referral"
-                type="text"
-                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-              />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1" for="heard"
-                >How did you hear about the lodge?</label
-              >
-              <input
-                id="heard"
-                name="How they heard about us"
-                type="text"
-                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-              />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1" for="message"
-                >Anything else we should know?</label
-              >
-              <textarea
-                id="message"
-                name="Additional message"
-                rows="4"
-                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none resize-y"
-              ></textarea>
-            </div>
+                        var submitButton = form.querySelector(
+                            'button[type="submit"]',
+                        );
+                        var errorMessage = document.getElementById(
+                            "membership-submit-error",
+                        );
 
-            <div class="flex justify-between pt-4">
-              <button
-                type="button"
-                @click="back()"
-                class="text-gray-600 hover:text-potenza-charcoal text-sm font-medium"
-              >
-                ← Back
-              </button>
-              <button
-                type="button"
-                @click="next()"
-                :class="accentBtn()"
-                class="px-6 py-2.5 rounded-lg font-semibold text-sm"
-              >
-                Review
-              </button>
-            </div>
-          </div>
+                        submitButton.disabled = true;
+                        submitButton.textContent = "Sending...";
+                        errorMessage.classList.add("hidden");
 
-          <!-- Step 4: review -->
-          <div x-show="step === 4" class="p-8 md:p-10 space-y-6" x-cloak>
-            <h2
-              class="font-serif text-xl font-bold border-b pb-3"
-              :class="accentBorder()"
-            >
-              Review &amp; submit
-            </h2>
-            <p class="text-sm text-gray-600">
-              By submitting, you agree that the lodge may contact you about membership. This form is
-              delivered by email and saved in the lodge's inquiry dashboard.
-            </p>
-            <p class="text-xs text-gray-500">
-              Your application includes personal information such as your contact details and date
-              of birth. Submit only if you are comfortable sharing this information with Potenza
-              Lodge through its FormBold inquiry service.
-            </p>
-            <label class="flex items-start gap-3 cursor-pointer">
-              <input
-                type="checkbox"
-                name="Applicant confirms information is accurate"
-                value="Yes — I confirm my information is accurate to the best of my knowledge."
-                :required="step === 4"
-                class="mt-1 rounded border-gray-300 text-potenza-green focus:ring-potenza-gold"
-              />
-              <span class="text-sm text-gray-700"
-                >I confirm the information I provided is accurate to the best of my knowledge. *</span
-              >
-            </label>
-
-            <p id="membership-submit-error" class="hidden text-sm text-potenza-red"></p>
-
-            <div class="flex justify-between pt-4">
-              <button
-                type="button"
-                @click="back()"
-                class="text-gray-600 hover:text-potenza-charcoal text-sm font-medium"
-              >
-                ← Back
-              </button>
-              <button
-                type="submit"
-                :class="accentBtn()"
-                class="px-8 py-3 rounded-lg font-bold text-sm shadow-md"
-              >
-                Submit application
-              </button>
-            </div>
-          </div>
-        </form>
-
-        <p class="text-center text-xs text-gray-500 mt-8 max-w-lg mx-auto leading-relaxed">
-          Prefer paper? Download the application that matches your membership:
-          <a href="documents/Application2015.pdf" class="text-potenza-green font-medium underline">Men’s Lodge</a
-          >,
-          <a href="documents/ApplicationAux2021.pdf" class="text-potenza-red font-medium underline"
-            >Ladies Auxiliary</a
-          >. Bring or mail it to the lodge. Questions:
-          <a href="tel:3034771722" class="underline">303-477-1722</a>.
-        </p>
-      </div>
-    </main>
-
-    <style>
-      [x-cloak] {
-        display: none !important;
-      }
-    </style>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var form = document.getElementById("membership-application-form");
-        if (form) {
-          form.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            var submitButton = form.querySelector('button[type="submit"]');
-            var errorMessage = document.getElementById("membership-submit-error");
-
-            submitButton.disabled = true;
-            submitButton.textContent = "Sending...";
-            errorMessage.classList.add("hidden");
-
-            submitFormBoldForm(form)
-              .then(function () {
-                window.location.href = new URL("membership-thanks.html", window.location.href).href;
-              })
-              .catch(function () {
-                errorMessage.textContent =
-                  "We could not send your application. Please try again or call 303-477-1722.";
-                errorMessage.classList.remove("hidden");
-                submitButton.disabled = false;
-                submitButton.textContent = "Submit application";
-              });
-          });
-        }
-      });
-    </script>
-  </body>
+                        submitFormBoldForm(form)
+                            .then(function () {
+                                window.location.href = new URL(
+                                    "membership-thanks.html",
+                                    window.location.href,
+                                ).href;
+                            })
+                            .catch(function () {
+                                errorMessage.textContent =
+                                    "We could not send your application. Please try again or call 303-477-1722.";
+                                errorMessage.classList.remove("hidden");
+                                submitButton.disabled = false;
+                                submitButton.textContent = "Submit application";
+                            });
+                    });
+                }
+            });
+        </script>
+    </body>
 </html>
