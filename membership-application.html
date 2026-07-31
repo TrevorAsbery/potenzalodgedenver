@@ -355,6 +355,7 @@
                                     name="Date of birth"
                                     type="date"
                                     :required="step === 2"
+                                    autocomplete="bday"
                                     class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
                                 />
                             </div>
@@ -373,6 +374,21 @@
                                     class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
                                 />
                             </div>
+                        </div>
+                        <div x-show="group === 'mens'">
+                            <label
+                                class="block text-sm font-medium text-gray-700 mb-1"
+                                for="cell_phone"
+                                >Cell phone</label
+                            >
+                            <input
+                                id="cell_phone"
+                                name="Cell phone"
+                                type="tel"
+                                :disabled="group !== 'mens'"
+                                autocomplete="tel"
+                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                            />
                         </div>
                         <div>
                             <label
@@ -451,36 +467,36 @@
                                 />
                             </div>
                         </div>
-                        <div>
-                            <label
-                                class="block text-sm font-medium text-gray-700 mb-1"
-                                for="occupation"
-                                >Occupation / employer</label
-                            >
-                            <input
-                                id="occupation"
-                                name="Occupation or employer"
-                                type="text"
-                                autocomplete="organization-title"
-                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                            />
+                        <div class="grid sm:grid-cols-2 gap-4" x-show="group === 'ladies'">
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-1"
+                                    for="wedding_anniversary"
+                                    >Wedding anniversary</label
+                                >
+                                <input
+                                    id="wedding_anniversary"
+                                    name="Wedding anniversary"
+                                    type="date"
+                                    :disabled="group !== 'ladies'"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-medium text-gray-700 mb-1"
+                                    for="date_joined"
+                                    >Date joined</label
+                                >
+                                <input
+                                    id="date_joined"
+                                    name="Date joined"
+                                    type="date"
+                                    :disabled="group !== 'ladies'"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <label
-                                class="block text-sm font-medium text-gray-700 mb-1"
-                                for="heritage"
-                                >Italian heritage / family town or region (if
-                                applicable)</label
-                            >
-                            <input
-                                id="heritage"
-                                name="Heritage or family origin"
-                                type="text"
-                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                                placeholder="e.g. Potenza, Basilicata"
-                            />
-                        </div>
-
                         <div class="flex justify-between pt-4">
                             <button
                                 type="button"
@@ -510,75 +526,74 @@
                             class="font-serif text-xl font-bold border-b pb-3 mb-2"
                             :class="accentBorder()"
                         >
-                            Emergency contact &amp; details
+                            <span x-show="group === 'mens'">Family lineage</span>
+                            <span x-show="group === 'ladies'">Potentini ancestry</span>
                         </h2>
-                        <div class="grid sm:grid-cols-2 gap-4">
+                        <div x-show="group === 'ladies'">
+                            <label class="block text-sm font-medium text-gray-700 mb-1" for="potentini_ancestry">
+                                Potentini ancestry - names of mother, father, husband, widow of,
+                                grandmother, grandfather, great grandmother, and great grandfather
+                            </label>
+                            <textarea id="potentini_ancestry" name="Potentini ancestry" rows="6" :disabled="group !== 'ladies'"
+                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none resize-y"></textarea>
+                        </div>
+
+                        <div x-show="group === 'mens'" class="space-y-7">
                             <div>
-                                <label
-                                    class="block text-sm font-medium text-gray-700 mb-1"
-                                    for="ec_name"
-                                    >Emergency contact name</label
-                                >
-                                <input
-                                    id="ec_name"
-                                    name="Emergency contact name"
-                                    type="text"
-                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                                />
+                                <label class="block text-sm font-medium text-gray-700 mb-1" for="family_lineage_summary">
+                                    Family lineage, grandparents &amp; place of birth, etc.
+                                </label>
+                                <textarea id="family_lineage_summary" name="Family lineage, grandparents and place of birth" rows="4" :disabled="group !== 'mens'"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none resize-y"></textarea>
                             </div>
-                            <div>
-                                <label
-                                    class="block text-sm font-medium text-gray-700 mb-1"
-                                    for="ec_phone"
-                                    >Emergency contact phone</label
-                                >
-                                <input
-                                    id="ec_phone"
-                                    name="Emergency contact phone"
-                                    type="tel"
-                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                                />
-                            </div>
+
+                            <fieldset :disabled="group !== 'mens'" class="space-y-4 border border-gray-200 rounded-lg p-5">
+                                <legend class="px-2 font-serif font-bold text-potenza-green">Applicant's father</legend>
+                                <div><label class="block text-sm font-medium mb-1" for="father_name">Fathers Name:</label><input id="father_name" name="Fathers Name" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div><label class="block text-sm font-medium mb-1" for="father_born">Born</label><input id="father_born" name="Father - born" type="date" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                    <div><label class="block text-sm font-medium mb-1" for="father_deceased">If deceased, when?</label><input id="father_deceased" name="Father - if deceased, when" type="date" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                </div>
+                                <div><label class="block text-sm font-medium mb-1" for="father_address">Address</label><input id="father_address" name="Father - address" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                <div><label class="block text-sm font-medium mb-1" for="father_location">City, state, country</label><input id="father_location" name="Father - city, state, country" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                <div><label class="block text-sm font-medium mb-1" for="father_phone">Phone</label><input id="father_phone" name="Father - phone" type="tel" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                            </fieldset>
+
+                            <fieldset :disabled="group !== 'mens'" class="space-y-4 border border-gray-200 rounded-lg p-5">
+                                <legend class="px-2 font-serif font-bold text-potenza-green">Applicant's mother</legend>
+                                <div><label class="block text-sm font-medium mb-1" for="mother_name">Mothers Name:</label><input id="mother_name" name="Mothers Name" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div><label class="block text-sm font-medium mb-1" for="mother_born">Born</label><input id="mother_born" name="Mother - born" type="date" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                    <div><label class="block text-sm font-medium mb-1" for="mother_deceased">If deceased, when?</label><input id="mother_deceased" name="Mother - if deceased, when" type="date" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                </div>
+                                <div><label class="block text-sm font-medium mb-1" for="mother_address">Address</label><input id="mother_address" name="Mother - address" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                <div><label class="block text-sm font-medium mb-1" for="mother_location">City, state, country</label><input id="mother_location" name="Mother - city, state, country" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                <div><label class="block text-sm font-medium mb-1" for="mother_phone">Phone</label><input id="mother_phone" name="Mother - phone" type="tel" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                            </fieldset>
+
+                            <template x-for="relative in [
+                                { id: 'grandfather', label: 'Grandfather' },
+                                { id: 'grandmother', label: 'Grandmother' },
+                                { id: 'great_grandfather', label: 'Great grandfather' },
+                                { id: 'great_grandmother', label: 'Great grandmother' }
+                            ]" :key="relative.id">
+                                <fieldset class="space-y-4 border border-gray-200 rounded-lg p-5">
+                                    <legend class="px-2 font-serif font-bold text-potenza-green" x-text="relative.label"></legend>
+                                    <div><label class="block text-sm font-medium mb-1" :for="relative.id + '_name'">Name</label><input :id="relative.id + '_name'" :name="relative.label + ' - name'" :disabled="group !== 'mens'" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                    <div class="grid sm:grid-cols-2 gap-4">
+                                        <div><label class="block text-sm font-medium mb-1" :for="relative.id + '_born'">Born</label><input :id="relative.id + '_born'" :name="relative.label + ' - born'" :disabled="group !== 'mens'" type="date" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                        <div><label class="block text-sm font-medium mb-1" :for="relative.id + '_died'">Died</label><input :id="relative.id + '_died'" :name="relative.label + ' - died'" :disabled="group !== 'mens'" type="date" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                    </div>
+                                    <div><label class="block text-sm font-medium mb-1" :for="relative.id + '_address'">Address</label><input :id="relative.id + '_address'" :name="relative.label + ' - address'" :disabled="group !== 'mens'" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                    <div><label class="block text-sm font-medium mb-1" :for="relative.id + '_location'">City, state, country</label><input :id="relative.id + '_location'" :name="relative.label + ' - city, state, country'" :disabled="group !== 'mens'" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" /></div>
+                                </fieldset>
+                            </template>
                         </div>
+
                         <div>
-                            <label
-                                class="block text-sm font-medium text-gray-700 mb-1"
-                                for="sponsor"
-                                >Sponsor or member who referred you (if
-                                any)</label
-                            >
-                            <input
-                                id="sponsor"
-                                name="Sponsor or referral"
-                                type="text"
-                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                            />
-                        </div>
-                        <div>
-                            <label
-                                class="block text-sm font-medium text-gray-700 mb-1"
-                                for="heard"
-                                >How did you hear about the lodge?</label
-                            >
-                            <input
-                                id="heard"
-                                name="How they heard about us"
-                                type="text"
-                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none"
-                            />
-                        </div>
-                        <div>
-                            <label
-                                class="block text-sm font-medium text-gray-700 mb-1"
-                                for="message"
-                                >Anything else we should know?</label
-                            >
-                            <textarea
-                                id="message"
-                                name="Additional message"
-                                rows="4"
-                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none resize-y"
-                            ></textarea>
+                            <label class="block text-sm font-medium text-gray-700 mb-1" for="sponsor">Sponsor's name</label>
+                            <input id="sponsor" name="Sponsor's name" type="text"
+                                class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none" />
                         </div>
 
                         <div class="flex justify-between pt-4">
@@ -624,19 +639,78 @@
                             with Potenza Lodge through its FormBold inquiry
                             service.
                         </p>
-                        <label class="flex items-start gap-3 cursor-pointer">
+                        <label
+                            x-show="group === 'mens'"
+                            class="flex items-start gap-3 cursor-pointer rounded-lg border border-potenza-green/20 bg-potenza-cream/50 p-4"
+                        >
                             <input
                                 type="checkbox"
-                                name="Applicant confirms information is accurate"
-                                value="Yes — I confirm my information is accurate to the best of my knowledge."
-                                :required="step === 4"
+                                name="Men's Lodge applicant acknowledgment"
+                                value="Accepted"
+                                :required="step === 4 && group === 'mens'"
                                 class="mt-1 rounded border-gray-300 text-potenza-green focus:ring-potenza-gold"
                             />
                             <span class="text-sm text-gray-700"
-                                >I confirm the information I provided is
-                                accurate to the best of my knowledge. *</span
+                                >I understand that any information or concealment of any of the
+                                facts will operate as forfeiture on my part of any benefits to which
+                                I might otherwise be entitled. I further understand that in the event
+                                of any failure to pay my dues on or before the due date, all benefits
+                                here under shall cease according to the By-Laws of the Lodge. *</span
                             >
                         </label>
+                        <label
+                            x-show="group === 'ladies'"
+                            class="flex items-start gap-3 cursor-pointer rounded-lg border border-potenza-red/20 bg-potenza-cream/50 p-4"
+                        >
+                            <input
+                                type="checkbox"
+                                name="Ladies Auxiliary applicant acknowledgment"
+                                value="Accepted"
+                                :required="step === 4 && group === 'ladies'"
+                                class="mt-1 rounded border-gray-300 text-potenza-red focus:ring-potenza-gold"
+                            />
+                            <span class="text-sm text-gray-700"
+                                >I understand that I must abide by the by-laws of the Ladies Auxiliary
+                                and pay dues each year per the by-laws to remain an active member. I am
+                                aware that I must attend a meeting at the time that I join the Auxiliary
+                                to get sworn into the Auxiliary. *</span
+                            >
+                        </label>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div x-show="group === 'mens'">
+                                <label class="block text-sm font-medium text-gray-700 mb-1" for="applicant_name_confirmation">
+                                    Applicant's name *
+                                </label>
+                                <input id="applicant_name_confirmation" name="Applicant's name" type="text"
+                                    :required="step === 4 && group === 'mens'" autocomplete="name"
+                                    :disabled="group !== 'mens'"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none" />
+                            </div>
+                            <div x-show="group === 'ladies'">
+                                <label class="block text-sm font-medium text-gray-700 mb-1" for="applicant_signature">
+                                    Applicant's signature *
+                                </label>
+                                <input id="applicant_signature" name="Applicant's signature" type="text"
+                                    :required="step === 4 && group === 'ladies'" autocomplete="name"
+                                    :disabled="group !== 'ladies'"
+                                    placeholder="Type your full legal name"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1" for="application_date">Date *</label>
+                                <input id="application_date" name="Application date" type="date"
+                                    :required="step === 4"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-2.5 focus:ring-2 focus:ring-potenza-gold outline-none" />
+                            </div>
+                        </div>
+
+                        <p x-show="group === 'ladies'" class="text-sm font-medium text-potenza-red">
+                            <strong>Ladies Auxiliary only:</strong> A $25 application fee is due with
+                            your application. Make checks payable to <strong>Potenza Ladies
+                            Auxiliary</strong>. After submitting this form, a lodge representative
+                            will contact you with instructions for delivering your check.
+                        </p>
 
                         <p
                             id="membership-submit-error"
